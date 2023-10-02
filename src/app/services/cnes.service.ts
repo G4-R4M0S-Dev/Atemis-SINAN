@@ -7,7 +7,7 @@ import { concatMap, toArray } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CnesService {
-  private readonly baseUrl = '/cnes/estabelecimentos?codigo_tipo_unidade=02&status=1';
+  private readonly baseUrl = 'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_tipo_unidade=02&status=1';
 
   constructor(private http: HttpClient) {}
 
