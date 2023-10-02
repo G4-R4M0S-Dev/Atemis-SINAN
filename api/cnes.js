@@ -1,24 +1,21 @@
 const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
-  const baseUrl = 'https://apidadosabertos.saude.gov.br';
-  const endpoint = req.url.replace(/^\/api/, '');
+    const baseUrl = 'https://apidadosabertos.saude.gov.br';
+    const endpoint = req.url.replace(/^\/api/, '');
 
-  try {
-    const apiResponse = await fetch(baseUrl + endpoint, {
-      method: req.method,
-      headers: req.headers
-    });
+    try {
+        const apiUrl = baseUrl + endpoint;
+        console.log("Redirecting to:", apiUrl);  // Log para depuração
 
-    const data = await apiResponse.json();
+        const apiResponse = await fetch(apiUrl);
 
-    // Adicionando headers para resolver problemas de CORS
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        const data = await apiResponse.json();
 
-    res.status(apiResponse.status).json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.status(apiResponse.status).json(data);
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 };
