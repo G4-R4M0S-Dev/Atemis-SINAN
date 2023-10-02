@@ -1,0 +1,454 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h4>Formulário de Notificação de Sífilis em Gestante</h4>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="card-body">
+        <div class="card mb-3">
+          <div class="card-header">
+            <h6>Dados Gerais</h6>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3 mb-3">
+                <label for="city" class="form-label">Tipo de Notificação</label>
+                <input type="text" class="form-control" id="tiponotificacao" name="tiponotificacao" placeholder="Individual" value="Individual" disabled="true" >
+              </div>
+
+              <div class="col-3 mb-3">
+                <label for="city" class="form-label">Agravo/doença</label>
+                <input type="text" class="form-control" id="agravo" name="agravo" placeholder="Sífilis em Gestante" value="Sífilis em Gestante" disabled="true" >
+              </div>
+
+              <div class="col-3 mb-3">
+                <label for="city" class="form-label">Código (CID10)</label>
+                <input type="text" class="form-control" id="cid10" name="cid10" placeholder="O98.1" value="O98.1" disabled="true" >
+              </div>
+
+              <div class="col-3 mb-3">
+                  <label for="notificationDate" class="form-label">Data da Notificação</label>
+                  <input type="date" class="form-control" id="notificationDate" formControlName="Texto1"  >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2 mb-3">
+                  <label for="uf" class="form-label">UF</label>
+                  <select class="form-control" id="uf" formControlName="Texto2" #ufSelect (change)="loadMunicipios(ufSelect.value)">
+                    <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+                  </select>
+              </div>
+
+              <div class="col-6 mb-3">
+                  <label for="city" class="form-label">Município de Notificação</label>
+                  <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
+                  <select class="form-control" id="city" formControlName="Texto3" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto4')">
+                      <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
+                  </select>
+              </div>
+
+              <div class="col-4 mb-3">
+                  <label for="ibgeCode" class="form-label">Código IBGE</label>
+                  <input type="text" class="form-control" id="ibgeCode" formControlName="Texto4" readonly>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-4 mb-3">
+                <label for="healthUnit" class="form-label">Unidade de Saúde</label>
+                <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
+                <select formControlName="Texto5" class="form-control" id="healthUnit" (change)="updateCnesValue($event, 'Texto6')">
+                  <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.nome_fantasia">
+                      {{ estabelecimento.nome_fantasia }}
+                  </option>
+              </select>
+            </div>
+
+            <div class="col-4 mb-3">
+                <label for="code" class="form-label">Código (CNES)</label>
+                <input type="text" class="form-control" id="code" formControlName="Texto6" readonly>
+            </div>
+
+            <div class="col-4 mb-3">
+                <label for="diagnosisDate" class="form-label">Data do Diagnóstico</label>
+                <input type="date" class="form-control" id="diagnosisDate" formControlName="Texto7"  >
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="card mb-3">
+          <div class="card-header">
+            <h6>Notificação Individual</h6>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-5 mb-3">
+                  <label for="patientName" class="form-label">Nome do Paciente</label>
+                  <input type="text" class="form-control" id="patientName" formControlName="Texto8"  >
+              </div>
+
+              <div class="col-3 mb-3">
+                  <label for="birthDate" class="form-label">Data de nascimento</label>
+                  <input type="date" class="form-control" id="birthDate" formControlName="Texto9"  >
+              </div>
+
+              <div class="col-2 mb-3">
+                  <label for="age" class="form-label">Idade</label>
+                  <input type="text" class="form-control" id="age" formControlName="Texto10"   mask="9{3}">
+              </div>
+
+              <div class="col-2 mb-3">
+                  <label for="gender" class="form-label">Sexo</label>
+                  <select class="form-control" id="gender" formControlName="Texto12"  >
+                      <option selected value="F">Feminino</option>
+                  </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Campo Gestante -->
+              <div class="col-4 mb-3">
+                  <label for="gestante" class="form-label">Gestante</label>
+                  <select class="form-control" id="gestante" formControlName="Texto13"  >
+                      <option value="1">1 - 1° trimestre</option>
+                      <option value="2">2 - 2° trimestre</option>
+                      <option value="3">3 - 3° trimestre</option>
+                      <option value="4">4 - IG ignorada</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+              </div>
+
+              <!-- Campo Raça/cor -->
+              <div class="col-4 mb-3">
+                  <label for="racaCor" class="form-label">Raça/cor</label>
+                  <select class="form-control" id="racaCor" formControlName="Texto14"  >
+                      <option value="1">1 - Branca</option>
+                      <option value="2">2 - Preta</option>
+                      <option value="3">3 - Amarela</option>
+                      <option value="4">4 - Parda</option>
+                      <option value="5">5 - Indígena</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+              </div>
+
+              <!-- Campo Escolaridade -->
+              <div class="col-4 mb-3">
+                  <label for="escolaridade" class="form-label">Escolaridade</label>
+                  <select class="form-control" id="escolaridade" formControlName="Texto15"  >
+                      <option value="0">0 - Analfabeto</option>
+                      <option value="1">1 - 1° a 4° série incompleta do EF</option>
+                      <option value="2">2 - 4° série completa do EF</option>
+                      <option value="3">3 - 5° à 8° série incompleta do EF</option>
+                      <option value="4">4 - Ensino fundamental completo</option>
+                      <option value="5">5 - Ensino médio incompleto</option>
+                      <option value="6">6 - Ensino médio completo</option>
+                      <option value="7">7 - Educação superior incompleta</option>
+                      <option value="8">8 - Educação superior completa</option>
+                      <option value="9">9 - Ignorado</option>
+                      <option value="10">10 - Não se aplica</option>
+                  </select>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <!-- Campo Número do cartão SUS -->
+              <div class="col-4 mb-3">
+                <label for="cartaoSUS" class="form-label">Número do cartão SUS</label>
+                <input type="text" class="form-control" id="cartaoSUS" formControlName="Texto16"  #cartaoSUSControl="" pattern="^\d{15}$">
+              </div>
+              <!-- Campo Nome da mãe -->
+              <div class="col-8 mb-3">
+                  <label for="nomeMae" class="form-label">Nome da mãe</label>
+                  <input type="text" class="form-control" id="nomeMae" formControlName="Texto17"  >
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ... Seu código existente ... -->
+
+        <div class="card mb-3">
+          <div class="card-header">
+              <h6>Dados de Residência</h6>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-2 mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" formControlName="Texto30" mask="00000-000" #cep (change)="onCepChange(cep.value)">
+                    <div *ngIf="hasError" class="error-message">Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.</div>
+                  </div>
+
+                  <div class="col-2 mb-3">
+                      <label for="ufResidencia" class="form-label">UF</label>
+                      <input type="text" class="form-control" id="ufResidencia" formControlName="Texto18"   maxlength="2">
+                  </div>
+
+                  <div class="col-4 mb-3">
+                      <label for="cityResidencia" class="form-label">Município de Residência</label>
+                      <input type="text" class="form-control" id="cityResidencia" formControlName="Texto19"  >
+                  </div>
+
+                  <div class="col-2 mb-3">
+                      <label for="ibgeCodeResidencia" class="form-label">Código IBGE</label>
+                      <input type="text" class="form-control" id="ibgeCodeResidencia" formControlName="Texto20"   mask="9{7}">
+                  </div>
+                  <div class="col-2 mb-3">
+                      <label for="distrito" class="form-label">Distrito</label>
+                      <input type="text" class="form-control" id="distrito" formControlName="Texto21" >
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4 mb-3">
+                      <label for="bairro" class="form-label">Bairro</label>
+                      <input type="text" class="form-control" id="bairro" formControlName="Texto22" >
+                  </div>
+                  <div class="col-4 mb-3">
+                      <label for="logradouro" class="form-label">Logradouro</label>
+                      <input type="text" class="form-control" id="logradouro" formControlName="Texto23" >
+                  </div>
+                  <div class="col-2 mb-3">
+                      <label for="codigo" class="form-label">Código</label>
+                      <input type="text" class="form-control" id="codigo" formControlName="Texto24" >
+                  </div>
+                  <div class="col-2 mb-3">
+                      <label for="numero" class="form-label">Número</label>
+                      <input type="text" class="form-control" id="numero" formControlName="Texto25" >
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4 mb-3">
+                      <label for="complemento" class="form-label">Complemento</label>
+                      <input type="text" class="form-control" id="complemento" formControlName="Texto26" >
+                  </div>
+                  <div class="col-2 mb-3">
+                      <label for="geoCampo1" class="form-label">Geo Campo 1</label>
+                      <input type="text" class="form-control" id="geoCampo1" formControlName="Texto27" >
+                  </div>
+                  <div class="col-2 mb-3">
+                      <label for="geoCampo2" class="form-label">Geo Campo 2</label>
+                      <input type="text" class="form-control" id="geoCampo2" formControlName="Texto28" >
+                  </div>
+                  <div class="col-4 mb-3">
+                      <label for="pontoReferencia" class="form-label">Ponto de Referência</label>
+                      <input type="text" class="form-control" id="pontoReferencia" formControlName="Texto29" >
+                  </div>
+              </div>
+              <div class="row">
+
+                  <div class="col-4 mb-3">
+                      <label for="telefone" class="form-label">(DDD) Telefone</label>
+                      <input type="text" class="form-control" id="telefone" formControlName="Texto31"   mask="(00)00000-0000">
+                  </div>
+                  <div class="col-4 mb-3">
+                      <label for="zona" class="form-label">Zona</label>
+                      <select class="form-control" id="zona" formControlName="Texto32"  >
+                          <option value="1">1 - Urbana</option>
+                          <option value="2">2 - Rural</option>
+                          <option value="3">3 - Periurbana</option>
+                          <option value="9">9 - Ignorado</option>
+                      </select>
+                  </div>
+                  <div class="col-4 mb-3">
+                      <label for="pais" class="form-label">País</label>
+                      <input type="text" class="form-control" id="pais" formControlName="Texto33"  >
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- ... Seu código existente ... -->
+
+        <!-- ... Seu código existente ... -->
+
+        <div class="card mb-3">
+          <div class="card-header">
+              <h6>Dados Complementares do Caso</h6>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-12 mb-3">
+                      <label for="ocupacao" class="form-label">Ocupação</label>
+                      <input type="text" class="form-control" id="ocupacao" formControlName="Texto34"  >
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-2 mb-3">
+                    <label for="Texto35" class="form-label">UF</label>
+                    <select class="form-control" id="Texto35" formControlName="Texto35" #Texto35 (change)="loadMunicipios(Texto35.value)">
+                      <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <label for="Texto36" class="form-label">Município de Notificação</label>
+                    <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
+                    <select class="form-control" id="Texto36" formControlName="Texto36" #Texto36Select (change)="loadIbgeCode(Texto36Select.value, 'Texto37')">
+                        <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
+                    </select>
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label for="Texto37" class="form-label">Código IBGE</label>
+                    <input type="text" class="form-control" id="Texto37" formControlName="Texto37" readonly>
+                </div>
+                </div>
+              <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Texto38" class="form-label">Unidade de Saúde</label>
+                    <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
+                    <select formControlName="Texto38" class="form-control" id="Texto38" (change)="updateCnesValue($event, 'Texto39')">
+                      <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.nome_fantasia">
+                          {{ estabelecimento.nome_fantasia }}
+                      </option>
+                  </select>
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label for="Texto39" class="form-label">Código (CNES)</label>
+                    <input type="text" class="form-control" id="Texto39" formControlName="Texto39" readonly>
+                </div>
+
+                <div class="col-4 mb-3">
+                    <label for="Texto40" class="form-label">Nº da Gestante no SISPRENATAL</label>
+                    <input type="text" class="form-control" id="Texto40" formControlName="Texto40">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3 mb-3">
+                  <label for="Texto41" class="form-label">Classificação Clínica</label>
+                  <select class="form-control" id="Texto41" formControlName="Texto41"  >
+                      <option value="1">1 - Primária</option>
+                      <option value="2">2 - Secundária</option>
+                      <option value="3">3 - Terciária</option>
+                      <option value="4">4 - Latente</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="Texto42" class="form-label">Teste não treponêmico no pré-natal</label>
+                  <select class="form-control" id="Texto42" formControlName="Texto42">
+                      <option value="1">1 - Reagente</option>
+                      <option value="2">2 - Não Reagente</option>
+                      <option value="3">3 - Não Realizado</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+                <div class="col-3 mb-3">
+                    <label for="Texto43" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="Texto43" formControlName="Texto43">
+                </div>
+                <div class="col-2 mb-3">
+                    <label for="Texto44" class="form-label">Data</label>
+                    <input type="date" class="form-control" id="Texto44" formControlName="Texto44">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3 mb-3">
+                  <label for="Texto45" class="form-label">Teste treponêmico no pré-natal</label>
+                  <select class="form-control" id="Texto45" formControlName="Texto45"  >
+                      <option value="1">1 - Reagente</option>
+                      <option value="2">2 - Não Reagente</option>
+                      <option value="3">3 - Não Realizado</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="Texto46" class="form-label">Esquema de tratamento prescrito à gestante</label>
+                  <select class="form-control" id="Texto46" formControlName="Texto46"  >
+                      <option value="1">1 - Penicilina G benzantina 2.400.000 UI</option>
+                      <option value="2">2 - Penicilina G benzantina 4.800.000 UI </option>
+                      <option value="3">3 - Penicilina G benzantina 7.200.000 UI</option>
+                      <option value="4">4 - Outro esquema</option>
+                      <option value="5">5 - Não realizado</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+                <div class="col-5 mb-3">
+                  <label for="Texto47" class="form-label">Parceiro tratado concomitantemente à gestante</label>
+                  <select class="form-control" id="Texto47" formControlName="Texto47"  >
+                      <option value="1">1 - Sim</option>
+                      <option value="2">2 - Não</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4 mb-3">
+                  <label for="Texto48" class="form-label">Esquema de tratamento prescrito ao parceiro</label>
+                  <select class="form-control" id="Texto48" formControlName="Texto48"  >
+                      <option value="1">1 - Penicilina G benzantina 2.400.000 UI</option>
+                      <option value="2">2 - Penicilina G benzantina 4.800.000 UI </option>
+                      <option value="3">3 - Penicilina G benzantina 7.200.000 UI</option>
+                      <option value="4">4 - Outro esquema</option>
+                      <option value="5">5 - Não realizado</option>
+                      <option value="9">9 - Ignorado</option>
+                  </select>
+                </div>
+                <div class="col-5 mb-3">
+                  <label for="Texto49" class="form-label">Motivo para o não tratamento do Parceiro</label>
+                  <select class="form-control" id="Texto49" formControlName="Texto49"  >
+                      <option value="1">1 - Parceiro não teve mais contato com a gestante.</option>
+                      <option value="2">2 - Parceiro não foi comunicado/convocado à US para tratamento</option>
+                      <option value="3">3 - Parceiro foi comunicado/convocado à US para tratamento, mas não compareceu.</option>
+                      <option value="4">4 - Parceiro foi comunicado/convocado à US mas recusou o tratamento.</option>
+                      <option value="5">5 - Parceiro com sorologia não reagente.</option>
+                      <option value="6">6 - Outro motivo</option>
+                  </select>
+                </div>
+
+                <div class="col-3 mb-3">
+                  <label for="Texto50" class="form-label">Outro motivo</label>
+                  <input type="text" class="form-control" id="Texto50" formControlName="Texto50">
+                </div>
+              </div>
+
+          </div>
+        </div>
+
+        <!-- ... Seu código existente ... -->
+
+        <!-- ... Seu código existente ... -->
+
+          <div class="card mb-3">
+            <div class="card-header">
+              <h6>Investigador</h6>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="Texto51" class="form-label">Município/Unidade de Saúde</label>
+                    <input type="text" class="form-control" id="Texto51" formControlName="Texto51"  >
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="Texto52" class="form-label">Código da Unid. de Saúde</label>
+                    <input type="text" class="form-control" id="Texto52" formControlName="Texto52"   mask="00000000">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="Texto53" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="Texto53" formControlName="Texto53"  >
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Texto54" class="form-label">Função</label>
+                    <input type="text" class="form-control" id="Texto54" formControlName="Texto54"  >
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="Texto55" class="form-label">Assinatura</label>
+                    <input type="text" class="form-control" id="Texto55" formControlName="Texto55" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+      </div>
+
+    </form>
+  </div>
+  </div>
