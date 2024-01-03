@@ -7,11 +7,11 @@ import { CnesService } from '../../services/cnes.service';
 import { CepService } from '../../services/cep.service';
 
 @Component({
-  selector: 'app-sifilis-gestante',
-  templateUrl: './sifilis-gestante.component.html',
-  styleUrls: ['./sifilis-gestante.component.scss']
+  selector: 'app-notificacao',
+  templateUrl: './notificacao.component.html',
+  styleUrls: ['./notificacao.component.scss']
 })
-export class SifilisGestanteComponent {
+export class NotificacaoComponent {
   form!: FormGroup;
   submitted = false;
 
@@ -73,12 +73,12 @@ export class SifilisGestanteComponent {
 
   onCepChange(cep: string) {
     this.cepService.getCepDetails(cep).subscribe(details => {
-        this.form.get('Texto18')?.setValue(details.stateShortname);
-        this.form.get('Texto19')?.setValue(details.city);
-        this.form.get('Texto20')?.setValue(details.ibgeId);
-        this.form.get('Texto22')?.setValue(details.district);
-        this.form.get('Texto23')?.setValue(details.street);
-        this.form.get('Texto26')?.setValue(details.complement);
+        this.form.get('Texto23')?.setValue(details.stateShortname);
+        this.form.get('Texto24')?.setValue(details.city);
+        this.form.get('Texto25')?.setValue(details.ibgeId);
+        this.form.get('Texto27')?.setValue(details.district);
+        this.form.get('Texto28')?.setValue(details.street);
+        this.form.get('Texto31')?.setValue(details.complement);
         this.hasError = false;
     },
     error => {
@@ -88,23 +88,19 @@ export class SifilisGestanteComponent {
 
 
   private dependenciesMap: Record<string, { observe: string, value?: any }> = {
-    'Texto3':  { observe:'Texto2'},
-    'Texto4':  { observe:'Texto3'},
     'Texto5':  { observe:'Texto4'},
     'Texto6':  { observe:'Texto5'},
-    'Texto36': { observe:'Texto35'},
-    'Texto37': { observe:'Texto36'},
-    'Texto38': { observe:'Texto37'},
-    'Texto39': { observe:'Texto38'},
-    'Texto50': { observe:'Texto49', value:'6'}
+    'Texto7':  { observe:'Texto6'},
+    'Texto8':  { observe:'Texto7'},
+    'Texto22': { observe:'Texto21', value:'11'},
   };
 
   private createForm() {
     const controls: Record<string, FormControl> = {};
 
-    for (let i = 1; i <= 55; i++) {
+    for (let i = 1; i <= 69; i++) {
       let validators = [];
-      const requiredFields = [2,3,5,6,8,9,12,18,19,33,35,36,37,38,41,42,45,46,47];
+      const requiredFields = [1,2,3,4,5,7,9,10,11,13,19,20,21];
 
       if (requiredFields.includes(i)) {
         validators.push(Validators.required);
@@ -113,7 +109,7 @@ export class SifilisGestanteComponent {
       if (Object.keys(this.dependenciesMap).includes(`Texto${i}`)) {
         controls[`Texto${i}`] = new FormControl({value: '', disabled: true}, validators);
       } else {
-        if (i == 33){
+        if (i == 38){
           controls[`Texto${i}`] = new FormControl('Brasil', validators);
         }else{
           controls[`Texto${i}`] = new FormControl('', validators);
@@ -144,10 +140,10 @@ export class SifilisGestanteComponent {
     }
 
     //Específico para calcular a idade
-    this.form.get('Texto9')?.valueChanges.subscribe(date => {
+    this.form.get('Texto11')?.valueChanges.subscribe(date => {
       if (date) {
         const age = this.calculateAge(new Date(date));
-        this.form.get('Texto10')?.setValue(age);
+        this.form.get('Texto12')?.setValue(age);
       }
     });
 
@@ -166,7 +162,7 @@ export class SifilisGestanteComponent {
     const formValues = this.form.value;
 
       // Carregue seu PDF
-      const pdfUrl = '../../../assets/formularios/Sifilis_Gestante.pdf'; // Altere isso para o caminho do seu PDF
+      const pdfUrl = '../../../assets/formularios/Notificacao_Individual.pdf'; // Altere isso para o caminho do seu PDF
       const pdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
 
       const pdfDoc = await PDFDocument.load(pdfBytes);
@@ -177,12 +173,12 @@ export class SifilisGestanteComponent {
 
       // Aqui, pegue os campos do seu PDF e defina os valores
       // O nome do campo é o que está definido no seu PDF interativo
-      for (let i = 1; i <= 55; i++) {
+      for (let i = 1; i <= 69; i++) {
         const fieldName = `Texto${i}`;
         let fieldValue = formValues[`Texto${i}`];
 
         // definindo o campo 11 (tipo de idade) para 4 que é em anos.
-        if (i === 11){
+        if (i === 69){
             fieldValue = 4;
         }
 

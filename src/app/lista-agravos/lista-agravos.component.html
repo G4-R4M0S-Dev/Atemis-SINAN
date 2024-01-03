@@ -1,4 +1,7 @@
 <div class="container mt-5">
+  <div class="header-image">
+    <img src="../../assets/logo.png" alt="Título" class="img-fluid">
+  </div>
   <div class="list-group">
     <a
       href="#"
@@ -20,11 +23,13 @@
         <div class="modal-body">
           <ng-container [ngSwitch]="agravoSelecionado">
             <app-dengue2 *ngSwitchCase="1"></app-dengue2>
-            <app-hanseniase *ngSwitchCase="2"></app-hanseniase>
-            <app-tuberculose *ngSwitchCase="3"></app-tuberculose>
-            <app-sifilis-gestante *ngSwitchCase="4"></app-sifilis-gestante>
-            <app-hiv-gestante *ngSwitchCase="5"></app-hiv-gestante>
-            <app-febre-amarela *ngSwitchCase="6"></app-febre-amarela>
+            <app-febre-amarela *ngSwitchCase="2"></app-febre-amarela>
+            <app-hanseniase *ngSwitchCase="3"></app-hanseniase>
+            <app-hiv-gestante *ngSwitchCase="4"></app-hiv-gestante>
+            <app-notificacao *ngSwitchCase="5"></app-notificacao>
+            <app-sifilis-congenita *ngSwitchCase="6"></app-sifilis-congenita>
+            <app-sifilis-gestante *ngSwitchCase="7"></app-sifilis-gestante>
+            <app-tuberculose *ngSwitchCase="8"></app-tuberculose>
           </ng-container>
         </div>
       </div>

@@ -1,13 +1,14 @@
 #agravoModal .modal-dialog {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 #agravoModal .modal-content {
-  transform: scale(0.95);
+transform: scale(0.95);
 }
-// #agravoModal .modal-header {
-//   padding: 5px 5px; // Ajuste conforme necessário. O padrão do Bootstrap é geralmente 1rem (16px) para o topo e fundo, e 1.5rem (24px) para os lados.
-// }
-// #agravoModal .modal-body {
-//   padding: 5px 5px;
-// }
+.header-image {
+margin-bottom: 20px; /* Adicione espaço abaixo da imagem, se necessário */
+text-align: center; /* Se você quiser centralizar a imagem */
+}
 
+.header-image img {
+max-height: 150px; /* Ajuste para o tamanho desejado */
+}

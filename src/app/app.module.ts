@@ -16,6 +16,8 @@ import { TuberculoseComponent } from './agravos/tuberculose/tuberculose.componen
 import { SifilisGestanteComponent } from './agravos/sifilis-gestante/sifilis-gestante.component';
 import { HivGestanteComponent } from './agravos/hiv-gestante/hiv-gestante.component';
 import { FebreAmarelaComponent } from './agravos/febre-amarela/febre-amarela.component';
+import { SifilisCongenitaComponent } from './agravos/sifilis-congenita/sifilis-congenita.component';
+import { NotificacaoComponent } from './agravos/notificacao/notificacao.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { FebreAmarelaComponent } from './agravos/febre-amarela/febre-amarela.com
     TuberculoseComponent,
     SifilisGestanteComponent,
     HivGestanteComponent,
-    FebreAmarelaComponent
+    FebreAmarelaComponent,
+    SifilisCongenitaComponent,
+    NotificacaoComponent
   ],
   imports: [
     BrowserModule,

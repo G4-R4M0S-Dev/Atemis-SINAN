@@ -7,11 +7,11 @@ import { CnesService } from '../../services/cnes.service';
 import { CepService } from '../../services/cep.service';
 
 @Component({
-  selector: 'app-sifilis-gestante',
-  templateUrl: './sifilis-gestante.component.html',
-  styleUrls: ['./sifilis-gestante.component.scss']
+  selector: 'app-sifilis-congenita',
+  templateUrl: './sifilis-congenita.component.html',
+  styleUrls: ['./sifilis-congenita.component.scss']
 })
-export class SifilisGestanteComponent {
+export class SifilisCongenitaComponent {
   form!: FormGroup;
   submitted = false;
 
@@ -73,12 +73,12 @@ export class SifilisGestanteComponent {
 
   onCepChange(cep: string) {
     this.cepService.getCepDetails(cep).subscribe(details => {
-        this.form.get('Texto18')?.setValue(details.stateShortname);
-        this.form.get('Texto19')?.setValue(details.city);
-        this.form.get('Texto20')?.setValue(details.ibgeId);
-        this.form.get('Texto22')?.setValue(details.district);
-        this.form.get('Texto23')?.setValue(details.street);
-        this.form.get('Texto26')?.setValue(details.complement);
+        this.form.get('Texto16')?.setValue(details.stateShortname);
+        this.form.get('Texto17')?.setValue(details.city);
+        this.form.get('Texto18')?.setValue(details.ibgeId);
+        this.form.get('Texto20')?.setValue(details.district);
+        this.form.get('Texto21')?.setValue(details.street);
+        this.form.get('Texto24')?.setValue(details.complement);
         this.hasError = false;
     },
     error => {
@@ -92,19 +92,22 @@ export class SifilisGestanteComponent {
     'Texto4':  { observe:'Texto3'},
     'Texto5':  { observe:'Texto4'},
     'Texto6':  { observe:'Texto5'},
-    'Texto36': { observe:'Texto35'},
-    'Texto37': { observe:'Texto36'},
     'Texto38': { observe:'Texto37'},
     'Texto39': { observe:'Texto38'},
-    'Texto50': { observe:'Texto49', value:'6'}
+    'Texto40': { observe:'Texto39'},
+    'Texto41': { observe:'Texto40'},
+    'Texto51': { observe:'Texto50'},
+    'Texto52': { observe:'Texto51'},
+    'Texto77': { observe:'Texto76', value:'1'},
+    'Texto79': { observe:'Texto78', value:'4'}
   };
 
   private createForm() {
     const controls: Record<string, FormControl> = {};
 
-    for (let i = 1; i <= 55; i++) {
+    for (let i = 1; i <= 87; i++) {
       let validators = [];
-      const requiredFields = [2,3,5,6,8,9,12,18,19,33,35,36,37,38,41,42,45,46,47];
+      const requiredFields = [2,3,5,6,8,9,12,16,17,31,50,51,52,53,55,58,67,68,69,70,71,72,73,74,75,76,78,80];
 
       if (requiredFields.includes(i)) {
         validators.push(Validators.required);
@@ -166,7 +169,7 @@ export class SifilisGestanteComponent {
     const formValues = this.form.value;
 
       // Carregue seu PDF
-      const pdfUrl = '../../../assets/formularios/Sifilis_Gestante.pdf'; // Altere isso para o caminho do seu PDF
+      const pdfUrl = '../../../assets/formularios/Sifilis_Congenita.pdf'; // Altere isso para o caminho do seu PDF
       const pdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
 
       const pdfDoc = await PDFDocument.load(pdfBytes);
@@ -177,7 +180,7 @@ export class SifilisGestanteComponent {
 
       // Aqui, pegue os campos do seu PDF e defina os valores
       // O nome do campo é o que está definido no seu PDF interativo
-      for (let i = 1; i <= 55; i++) {
+      for (let i = 1; i <= 87; i++) {
         const fieldName = `Texto${i}`;
         let fieldValue = formValues[`Texto${i}`];
 

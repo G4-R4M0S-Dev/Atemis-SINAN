@@ -1,43 +1,51 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { concatMap, toArray } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable, forkJoin, of } from 'rxjs';
+import { concatMap, takeWhile, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CnesService {
-  private readonly baseUrl = 'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_tipo_unidade=02&status=1';
+  private readonly baseUrl = '/cnes/estabelecimentos?status=1';
 
   constructor(private http: HttpClient) {}
 
-  private fetchPage(codigo_municipio: number, offset: number): Observable<any> {
-    const url = `${this.baseUrl}&codigo_municipio=${codigo_municipio}&limit=20&offset=${offset}`;
+  private fetchPage(codigo_municipio: number, codigo_tipo_unidade: string, offset: number): Observable<any> {
+    const url = `${this.baseUrl}&codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=20&offset=${offset}`;
     return this.http.get(url);
   }
 
-  getEstabelecimentosSaude(codigo_municipio: number): Observable<any[]> {
-    const estabelecimentos: any[] = [];
+  private fetchAllPages(codigo_municipio: number, codigo_tipo_unidade: string): Observable<any[]> {
     const limit = 20;
     let offset = 0;
+    const results: any[] = [];
 
-    const recursiveFetch = (offset: number): Observable<any> => {
-      return this.fetchPage(codigo_municipio, offset).pipe(
+    const fetchPageObservable = (offset: number): Observable<any> => {
+      return this.fetchPage(codigo_municipio, codigo_tipo_unidade, offset).pipe(
         concatMap(response => {
-          estabelecimentos.push(...response.estabelecimentos);
+          results.push(...response.estabelecimentos);
 
-          // Se a resposta contém menos que o limite, significa que é a última página.
           if (response.estabelecimentos.length < limit) {
-            return of(estabelecimentos);
+            // Se a resposta contém menos que o limite, significa que é a última página.
+            return of(results);
           }
 
-          // Caso contrário, incremente o offset e continue buscando.
           offset += limit;
-          return recursiveFetch(offset);
+          return fetchPageObservable(offset);
         })
       );
     };
 
-    return recursiveFetch(offset).pipe(toArray());
+    return fetchPageObservable(offset);
+  }
+
+  getEstabelecimentosSaude(codigo_municipio: number): Observable<any[]> {
+    const estabelecimentosTipo01$ = this.fetchAllPages(codigo_municipio, '01');
+    const estabelecimentosTipo02$ = this.fetchAllPages(codigo_municipio, '02');
+
+    return forkJoin([estabelecimentosTipo01$, estabelecimentosTipo02$]).pipe(
+      map(([estabelecimentosTipo01, estabelecimentosTipo02]) => [...estabelecimentosTipo01, ...estabelecimentosTipo02])
+    );
   }
 }

@@ -11,11 +11,13 @@ export class ListaAgravosComponent {
 
   agravos = [
     { id: 1, nome: 'Dengue/Chikungunya' },
-    { id: 2, nome: 'Hanseníase' },
-    { id: 3, nome: 'Tuberculose' },
-    { id: 4, nome: 'Sífilis em Gestante' },
-    { id: 5, nome: 'HIV em Gestante' },
-    { id: 6, nome: 'Febre Amarela' },
+    { id: 2, nome: 'Febre Amarela' },
+    { id: 3, nome: 'Hanseníase' },
+    { id: 4, nome: 'HIV em Gestante' },
+    { id: 5, nome: 'Notificação Geral' },
+    { id: 6, nome: 'Sífilis Congênita' },
+    { id: 7, nome: 'Sífilis em Gestante' },
+    { id: 8, nome: 'Tuberculose' },
   ];
 
   agravoSelecionado: number = 0;
