@@ -18,6 +18,7 @@ export class ListaAgravosComponent {
     { id: 6, nome: 'Sífilis Congênita' },
     { id: 7, nome: 'Sífilis em Gestante' },
     { id: 8, nome: 'Tuberculose' },
+    { id: 9, nome: 'Aids Criança' },
   ];
 
   agravoSelecionado: number = 0;
