@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="card">
     <div class="card-header">
-      <h4>Formulário de Notificação de HIV em Gestante</h4>
+      <h4>Formulário de Notificação de AIDS em Crianças</h4>
     </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="card-body">
@@ -40,11 +40,10 @@
               </div>
 
               <div class="col-6 mb-3">
-                  <label for="city" class="form-label">Município de Notificação</label>
-                  <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
-                  <select class="form-control" id="city" formControlName="Texto3" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto4')">
-                      <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
-                  </select>
+                <label for="city" class="form-label">Município de Notificação</label>
+                <select class="form-control" id="city" formControlName="Texto3" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto4')">
+                  <option *ngFor="let municipio of loadMunicipios(ufSelect.value)" [value]="municipio">{{ municipio }}</option>
+                </select>
               </div>
 
               <div class="col-4 mb-3">
@@ -398,11 +397,10 @@
               </div>
 
               <div class="col-5 mb-3">
-                  <label for="Texto46" class="form-label">Município de Notificação</label>
-                  <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
-                  <select class="form-control" id="Texto46" formControlName="Texto46" #Texto46_select (change)="loadIbgeCode(Texto46_select.value, 'Texto47')">
-                      <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
-                  </select>
+                <label for="Texto46" class="form-label">Município de Notificação</label>
+                <select class="form-control" id="Texto46" formControlName="Texto46" #Texto46_select (change)="loadIbgeCode(Texto46_select.value, 'Texto47')">
+                  <option *ngFor="let municipio of loadMunicipios(Texto45_select.value)" [value]="municipio">{{ municipio }}</option>
+                </select>
               </div>
 
               <div class="col-2 mb-3">
@@ -1012,8 +1010,8 @@
 
             <div class="row">
               <div class="col-4 mb-3">
-                <label for="Texto11" class="form-label">< 1.500 células por mm3 (< 25%)</label>
-                <select class="form-control" id="Texto11" formControlName="Texto11"  >
+                <label for="Texto111" class="form-label">< 1.500 células por mm3 (< 25%)</label>
+                <select class="form-control" id="Texto111" formControlName="Texto111"  >
                     <option value="1">1 - Sim</option>
                     <option value="2">2 - Não</option>
                     <option value="9">9 - Ignorado</option>
@@ -1067,11 +1065,10 @@
                 </div>
 
                 <div class="col-8 mb-3">
-                    <label for="Texto116" class="form-label">Município onde se realiza o tratamento</label>
-                    <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
-                    <select class="form-control" id="Texto116" formControlName="Texto116" #Texto116_select (change)="loadIbgeCode(Texto116_select.value, 'Texto117')">
-                        <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
-                    </select>
+                  <label for="Texto116" class="form-label">Município onde se realiza o tratamento</label>
+                  <select class="form-control" id="Texto116" formControlName="Texto116" #Texto116_select (change)="loadIbgeCode(Texto116_select.value, 'Texto117')">
+                    <option *ngFor="let municipio of loadMunicipios(Texto115_select.value)" [value]="municipio">{{ municipio }}</option>
+                  </select>
                 </div>
 
                 <div class="col-2 mb-3">

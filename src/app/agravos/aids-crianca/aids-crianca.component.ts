@@ -17,7 +17,7 @@ export class AidsCriancaComponent {
   submitted = false;
 
   estados: string[] = [];
-  municipios: string[] = [];
+  municipiosByUF: { [key: string]: string[] } = {};
   ibgeCode: number = 0;
   estabelecimentos: any[] = [];
   selectedCnes: number = 0;
@@ -40,10 +40,13 @@ export class AidsCriancaComponent {
     });
   }
 
-  loadMunicipios(uf: string) {
-    this.ibgeService.getMunicipios(uf).subscribe(response => {
-      this.municipios = response.map((municipio:any) => municipio.nome);
-    });
+  loadMunicipios(uf: string): string[] {
+    if (!this.municipiosByUF[uf]) {
+      this.ibgeService.getMunicipios(uf).subscribe(response => {
+        this.municipiosByUF[uf] = response.map((municipio: any) => municipio.nome);
+      });
+    }
+    return this.municipiosByUF[uf] || [];
   }
 
   loadIbgeCode(municipioNome: string, controlName: string) {
@@ -95,7 +98,8 @@ export class AidsCriancaComponent {
     'Texto6':  { observe:'Texto5'},
     'Texto46':  { observe:'Texto45'},
     'Texto47':  { observe:'Texto46'},
-    'Texto48':  { observe:'Texto47'},
+    'Texto116':  { observe:'Texto115'},
+    'Texto117':  { observe:'Texto116'},
   };
 
   private createForm() {
@@ -103,7 +107,8 @@ export class AidsCriancaComponent {
 
     for (let i = 1; i <= 124; i++) {
       let validators = [];
-      const requiredFields = [2,3,5,6,8,9,12,18,19,33];
+      const requiredFields = [2,3,5,6,8,9,12,18,19,33,38,39,40,41,42,43,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,
+      102,103,104,105,106,107,108,109,110,111,112,113,114];
 
       if (requiredFields.includes(i)) {
         validators.push(Validators.required);
@@ -165,7 +170,7 @@ export class AidsCriancaComponent {
     const formValues = this.form.value;
 
       // Carregue seu PDF
-      const pdfUrl = '../../../assets/formularios/Gestante_HIV.pdf'; // Altere isso para o caminho do seu PDF
+      const pdfUrl = '../../../assets/formularios/Aids_crianca.pdf'; // Altere isso para o caminho do seu PDF
       const pdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
 
       const pdfDoc = await PDFDocument.load(pdfBytes);
