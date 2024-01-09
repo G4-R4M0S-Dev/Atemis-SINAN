@@ -17,8 +17,8 @@ export class RaivaHumanaComponent {
 
   estados: string[] = [];
   municipiosByUF: { [key: string]: string[] } = {};
+  estabelecimentosByCodigo: { [codigo: number]: any[] } = {};
   ibgeCode: number = 0;
-  estabelecimentos: any[] = [];
   selectedCnes: number = 0;
   hasError: boolean = false;
 
@@ -53,21 +53,34 @@ export class RaivaHumanaComponent {
     this.ibgeService.getMunicipioId(formattedName).subscribe(response => {
       this.ibgeCode = parseInt(response.id.toString().slice(0, -1), 10);
       this.form.get(controlName)?.setValue(this.ibgeCode);
-      this.loadEstabelecimentosSaude(this.ibgeCode);
     });
   }
 
-  loadEstabelecimentosSaude(codigo_municipio: number) {
-    this.cnesService.getEstabelecimentosSaude(codigo_municipio).subscribe((response:any) => {
-      this.estabelecimentos = response.flatMap((estabelecimento: any) => {
-        return estabelecimento;
+  loadEstabelecimentosSaude(codigo_municipio: string): any[] {
+    // Verifique se codigo_municipio pode ser convertido em um número
+    const codigo = parseInt(codigo_municipio.toString());
+    if (isNaN(Number(codigo))) {
+      return [];
+    }
+
+    if (!this.estabelecimentosByCodigo[codigo]) {
+      this.cnesService.getEstabelecimentosSaude(codigo).subscribe((response:any) => {
+        this.estabelecimentosByCodigo[codigo] = response.flatMap((estabelecimento: any) => {
+          return estabelecimento;
+        });
       });
-    });
+    }
+    return this.estabelecimentosByCodigo[codigo] || [];
   }
+
 
   updateCnesValue(event: any, controlName: string) {
     const selectedNomeFantasia = event.target.value;
-    const selectedEstabelecimento = this.estabelecimentos.find(estabelecimento => estabelecimento.nome_fantasia === selectedNomeFantasia);
+
+    // Obter todos os estabelecimentos em um array
+    const allEstabelecimentos = Object.values(this.estabelecimentosByCodigo).flat();
+
+    const selectedEstabelecimento = allEstabelecimentos.find(estabelecimento => estabelecimento.nome_fantasia === selectedNomeFantasia);
     if (selectedEstabelecimento) {
         this.selectedCnes = selectedEstabelecimento.codigo_cnes;
         this.form.get(controlName)?.setValue(this.selectedCnes);
