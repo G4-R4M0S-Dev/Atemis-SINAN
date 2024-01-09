@@ -19,6 +19,7 @@ import { FebreAmarelaComponent } from './agravos/febre-amarela/febre-amarela.com
 import { SifilisCongenitaComponent } from './agravos/sifilis-congenita/sifilis-congenita.component';
 import { NotificacaoComponent } from './agravos/notificacao/notificacao.component';
 import { AidsCriancaComponent } from './agravos/aids-crianca/aids-crianca.component';
+import { RaivaHumanaComponent } from './agravos/raiva-humana/raiva-humana.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AidsCriancaComponent } from './agravos/aids-crianca/aids-crianca.compon
     FebreAmarelaComponent,
     SifilisCongenitaComponent,
     NotificacaoComponent,
-    AidsCriancaComponent
+    AidsCriancaComponent,
+    RaivaHumanaComponent
   ],
   imports: [
     BrowserModule,

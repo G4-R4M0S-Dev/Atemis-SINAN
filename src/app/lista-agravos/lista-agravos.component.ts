@@ -19,6 +19,7 @@ export class ListaAgravosComponent {
     { id: 7, nome: 'Sífilis em Gestante' },
     { id: 8, nome: 'Tuberculose' },
     { id: 9, nome: 'Aids Criança' },
+    { id: 10, nome: 'Raiva Humana' },
   ];
 
   agravoSelecionado: number = 0;
