@@ -521,7 +521,7 @@
               <div class="col-5 mb-3">
                 <label for="Texto60" class="form-label">Município do Hospital</label>
                 <select class="form-control" id="Texto60" formControlName="Texto60" #Texto60_select (change)="loadIbgeCode(Texto60_select.value, 'Texto62')">
-                  <option *ngFor="let municipio of loadMunicipios(Texto60_select.value)" [value]="municipio">{{ municipio }}</option>
+                  <option *ngFor="let municipio of loadMunicipios(Texto61_select.value)" [value]="municipio">{{ municipio }}</option>
                 </select>
               </div>
               <div class="col-2 mb-3">

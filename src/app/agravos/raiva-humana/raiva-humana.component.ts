@@ -95,7 +95,7 @@ export class RaivaHumanaComponent {
     'Texto4':  { observe:'Texto3'},
     'Texto5':  { observe:'Texto4'},
     'Texto6':  { observe:'Texto5'},
-    'Texto61':  { observe:'Texto60'},
+    'Texto60':  { observe:'Texto61'},
     'Texto62':  { observe:'Texto61'},
     'Texto74':  { observe:'Texto72', value:'1'},
     'Texto81':  { observe:'Texto80', value:'1'},
