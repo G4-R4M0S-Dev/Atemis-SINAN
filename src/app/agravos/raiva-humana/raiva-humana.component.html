@@ -48,7 +48,7 @@
 
               <div class="col-4 mb-3">
                   <label for="ibgeCode" class="form-label">Código IBGE</label>
-                  <input type="text" class="form-control" id="ibgeCode" formControlName="Texto4" readonly>
+                  <input type="text" class="form-control" id="ibgeCode" #ibgeCode formControlName="Texto4" readonly>
               </div>
           </div>
           <div class="row">
@@ -56,7 +56,7 @@
                 <label for="healthUnit" class="form-label">Unidade de Saúde</label>
                 <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                 <select formControlName="Texto5" class="form-control" id="healthUnit" (change)="updateCnesValue($event, 'Texto6')">
-                  <option *ngFor="let estabelecimento of estabelecimentos" [value]="estabelecimento.nome_fantasia">
+                  <option *ngFor="let estabelecimento of loadEstabelecimentosSaude(ibgeCode.value)" [value]="estabelecimento.nome_fantasia">
                       {{ estabelecimento.nome_fantasia }}
                   </option>
               </select>
