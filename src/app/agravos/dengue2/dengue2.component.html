@@ -11,12 +11,12 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                 <label for="city" class="form-label">Tipo de Notificação</label>
                 <input type="text" class="form-control" id="tiponotificacao" name="tiponotificacao" placeholder="Individual" value="Individual" disabled="true" >
               </div>
 
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                 <label for="agravo" class="form-label">Agravo/Doença</label>
                 <select class="form-control" id="agravo" formControlName="Texto1">
                     <option value="1">1 - Dengue</option>
@@ -24,25 +24,25 @@
                 </select>
             </div>
 
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                 <label for="city" class="form-label">Código (CID10)</label>
                 <input type="text" class="form-control" id="cid10" name="cid10" placeholder="A 90 A 92" value="A 90 A 92" disabled="true" >
               </div>
 
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                   <label for="notificationDate" class="form-label">Data da Notificação</label>
                   <input type="date" class="form-control" id="notificationDate" formControlName="Texto2"  >
               </div>
             </div>
             <div class="row">
-                <div class="col-2 mb-3">
+                <div class="col-md-2 mb-3">
                     <label for="uf" class="form-label">UF</label>
                     <select class="form-control" id="uf" formControlName="Texto3" #ufSelect (change)="loadMunicipios(ufSelect.value)">
                       <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                     </select>
                 </div>
 
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="city" class="form-label">Município de Notificação</label>
                     <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                     <select class="form-control" id="city" formControlName="Texto4" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto5')">
@@ -50,13 +50,13 @@
                     </select>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                     <label for="ibgeCode" class="form-label">Código IBGE</label>
                     <input type="text" class="form-control" id="ibgeCode" formControlName="Texto5" readonly>
                 </div>
             </div>
             <div class="row">
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="healthUnit" class="form-label">Unidade de Saúde</label>
                   <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                   <select formControlName="Texto6" class="form-control" id="healthUnit" (change)="updateCnesValue($event, 'Texto7')">
@@ -66,12 +66,12 @@
                 </select>
               </div>
 
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="code" class="form-label">Código (CNES)</label>
                   <input type="text" class="form-control" id="code" formControlName="Texto7" readonly>
               </div>
 
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="diagnosisDate" class="form-label">Data dos Primeiros Sintomas</label>
                   <input type="date" class="form-control" id="diagnosisDate" formControlName="Texto8"  >
               </div>
@@ -85,22 +85,22 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-5 mb-3">
+              <div class="col-md-5 mb-3">
                   <label for="patientName" class="form-label">Nome do Paciente</label>
                   <input type="text" class="form-control" id="patientName" formControlName="Texto9"  >
               </div>
 
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                   <label for="birthDate" class="form-label">Data de nascimento</label>
                   <input type="date" class="form-control" id="birthDate" formControlName="Texto10"  >
               </div>
 
-              <div class="col-2 mb-3">
+              <div class="col-md-2 mb-3">
                   <label for="age" class="form-label">Idade</label>
                   <input type="text" class="form-control" id="age" formControlName="Texto11"   mask="9{3}">
               </div>
 
-              <div class="col-2 mb-3">
+              <div class="col-md-2 mb-3">
                   <label for="gender" class="form-label">Sexo</label>
                   <select class="form-control" id="gender" formControlName="Texto13"  >
                       <option value="M">Masculino</option>
@@ -112,7 +112,7 @@
 
             <div class="row">
               <!-- Campo Gestante -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="gestante" class="form-label">Gestante</label>
                   <select class="form-control" id="gestante" formControlName="Texto14"  >
                       <option value="1">1 - 1° trimestre</option>
@@ -126,7 +126,7 @@
               </div>
 
               <!-- Campo Raça/cor -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="racaCor" class="form-label">Raça/cor</label>
                   <select class="form-control" id="racaCor" formControlName="Texto15"  >
                       <option value="1">1 - Branca</option>
@@ -139,7 +139,7 @@
               </div>
 
               <!-- Campo Escolaridade -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="escolaridade" class="form-label">Escolaridade</label>
                   <select class="form-control" id="escolaridade" formControlName="Texto16"  >
                       <option value="0">0 - Analfabeto</option>
@@ -160,12 +160,12 @@
 
             <div class="row">
               <!-- Campo Número do cartão SUS -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="cartaoSUS" class="form-label">Número do cartão SUS</label>
                 <input type="text" class="form-control" id="cartaoSUS" formControlName="Texto17"  #cartaoSUSControl="" pattern="^\d{15}$">
             </div>
               <!-- Campo Nome da mãe -->
-              <div class="col-8 mb-3">
+              <div class="col-md-8 mb-3">
                   <label for="nomeMae" class="form-label">Nome da mãe</label>
                   <input type="text" class="form-control" id="nomeMae" formControlName="Texto18"  >
               </div>
@@ -182,74 +182,74 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                     <label for="cep" class="form-label">CEP</label>
                     <input type="text" class="form-control" id="cep" formControlName="Texto31" mask="00000-000" #cep (change)="onCepChange(cep.value)">
                     <div *ngIf="hasError" class="error-message">Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.</div>
                   </div>
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ufResidencia" class="form-label">UF</label>
                       <input type="text" class="form-control" id="ufResidencia" formControlName="Texto19"   maxlength="2">
                   </div>
 
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="cityResidencia" class="form-label">Município de Residência</label>
                       <input type="text" class="form-control" id="cityResidencia" formControlName="Texto20"  >
                   </div>
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ibgeCodeResidencia" class="form-label">Código IBGE</label>
                       <input type="text" class="form-control" id="ibgeCodeResidencia" formControlName="Texto21"   mask="9{7}">
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="distrito" class="form-label">Distrito</label>
                       <input type="text" class="form-control" id="distrito" formControlName="Texto22" >
                   </div>
               </div>
               <div class="row">
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="bairro" class="form-label">Bairro</label>
                       <input type="text" class="form-control" id="bairro" formControlName="Texto23" >
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="logradouro" class="form-label">Logradouro</label>
                       <input type="text" class="form-control" id="logradouro" formControlName="Texto24" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="codigo" class="form-label">Código</label>
                       <input type="text" class="form-control" id="codigo" formControlName="Texto25" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="numero" class="form-label">Número</label>
                       <input type="text" class="form-control" id="numero" formControlName="Texto26" >
                   </div>
               </div>
               <div class="row">
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="complemento" class="form-label">Complemento</label>
                       <input type="text" class="form-control" id="complemento" formControlName="Texto27" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="geoCampo1" class="form-label">Geo Campo 1</label>
                       <input type="text" class="form-control" id="geoCampo1" formControlName="Texto28" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="geoCampo2" class="form-label">Geo Campo 2</label>
                       <input type="text" class="form-control" id="geoCampo2" formControlName="Texto29" >
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="pontoReferencia" class="form-label">Ponto de Referência</label>
                       <input type="text" class="form-control" id="pontoReferencia" formControlName="Texto30" >
                   </div>
               </div>
               <div class="row">
 
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="telefone" class="form-label">(DDD) Telefone</label>
                       <input type="text" class="form-control" id="telefone" formControlName="Texto32"   mask="(00)00000-0000">
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="zona" class="form-label">Zona</label>
                       <select class="form-control" id="zona" formControlName="Texto33"  >
                           <option value="1">1 - Urbana</option>
@@ -258,7 +258,7 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="pais" class="form-label">País</label>
                       <input type="text" class="form-control" id="pais" formControlName="Texto34"  >
                   </div>
@@ -276,76 +276,76 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-6 mb-3">
+                  <div class="col-md-6 mb-3">
                       <label for="dataInvestigacao" class="form-label">Data da Investigação</label>
                       <input type="date" class="form-control" id="dataInvestigacao" formControlName="Texto35"  >
                   </div>
-                  <div class="col-6 mb-3">
+                  <div class="col-md-6 mb-3">
                       <label for="ocupacaoInvestigacao" class="form-label">Ocupação</label>
                       <input type="text" class="form-control" id="ocupacaoInvestigacao" formControlName="Texto36"  >
                   </div>
               </div>
               <div class="linha">Sinais clínicos</div>
               <div class="row">
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="febre" formControlName="Texto37" >
                     <label for="febre" class="form-check-label">Febre</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Cefaleia" formControlName="Texto38" >
                     <label for="Cefaleia" class="form-check-label">Cefaleia</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Vomito" formControlName="Texto39" >
                     <label for="Vomito" class="form-check-label">Vômito</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="dorcostas" formControlName="Texto40" >
                     <label for="dorcostas" class="form-check-label">Dor nas costas</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Artrite" formControlName="Texto41" >
                     <label for="Artrite" class="form-check-label">Artrite</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Petequias" formControlName="Texto42" >
                     <label for="Petequias" class="form-check-label">Petéquias</label>
                   </div>
               </div>
               <!-- ... -->
               <div class="row">
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="provadolaco" formControlName="Texto43" >
                   <label for="provadolaco" class="form-check-label">Prova do laço positiva</label>
                 </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Mialgia" formControlName="Texto44" >
                     <label for="Mialgia" class="form-check-label">Mialgia</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Exantema" formControlName="Texto45" >
                     <label for="Exantema" class="form-check-label">Exantema</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Nauseas" formControlName="Texto46" >
                     <label for="Nauseas" class="form-check-label">Náuseas</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Conjuntivite" formControlName="Texto47" >
                     <label for="Conjuntivite" class="form-check-label">Conjuntivite</label>
                   </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Artralgiaintensa" formControlName="Texto48" >
                     <label for="Artralgiaintensa" class="form-check-label">Artralgia intensa</label>
                   </div>
               </div>
               <!-- ... -->
               <div class="row">
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Leucopenia" formControlName="Texto49" >
                   <label for="Leucopenia" class="form-check-label">Leucopenia</label>
                 </div>
-                  <div class="col-2 mb-3 form-check form-switch">
+                  <div class="col-md-2 mb-3 form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="Dorretroorbital" formControlName="Texto50" >
                     <label for="Dorretroorbital" class="form-check-label">Dor retroorbital</label>
                   </div>
@@ -353,33 +353,33 @@
               <!-- ... -->
               <div class="linha">Doenças pré-existentes</div>
               <div class="row">
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Diabetes" formControlName="Texto51" >
                   <label for="Diabetes" class="form-check-label">Diabetes</label>
                 </div>
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Hepatopatias" formControlName="Texto52" >
                   <label for="Hepatopatias" class="form-check-label">Hepatopatias</label>
                 </div>
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Hipertensaoarterial" formControlName="Texto53" >
                   <label for="Hipertensaoarterial" class="form-check-label">Hipertensão arterial</label>
                 </div>
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Doencasautoimunes" formControlName="Texto54" >
                   <label for="Doencasautoimunes" class="form-check-label">Doenças auto-imunes</label>
                 </div>
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Doençashematologicas" formControlName="Texto55" >
                   <label for="Doençashematologicas" class="form-check-label">Doenças hematológicas</label>
                 </div>
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Doencarenal" formControlName="Texto56" >
                   <label for="Doencarenal" class="form-check-label">Doença renal crônica</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-2 mb-3 form-check form-switch">
+                <div class="col-md-2 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="acidopeptica" formControlName="Texto57" >
                   <label for="acidopeptica" class="form-check-label">Doença ácido-péptica</label>
                 </div>
@@ -387,11 +387,11 @@
               <!-- ... -->
               <div class="linha">Chikungunya</div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="s1" class="form-label">Data da Coleta da 1ª Amostra (S1)</label>
                     <input type="date" class="form-control" id="s1" formControlName="Texto58" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="res1" class="form-label">Resultado S1</label>
                   <select class="form-control" id="res1" formControlName="Texto61"  >
                       <option value="1">1 - Reagente</option>
@@ -402,11 +402,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="s2" class="form-label">Data da Coleta da 2ª Amostra (S2)</label>
                     <input type="date" class="form-control" id="s2" formControlName="Texto59" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="res2" class="form-label">Resultado S2</label>
                   <select class="form-control" id="res2" formControlName="Texto62"  >
                       <option value="1">1 - Reagente</option>
@@ -417,11 +417,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="exameprnt" class="form-label">Exame PRNT: Data da Coleta</label>
                     <input type="date" class="form-control" id="exameprnt" formControlName="Texto60" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="resprnt" class="form-label">Resultado PRNT</label>
                   <select class="form-control" id="resprnt" formControlName="Texto63"  >
                       <option value="1">1 - Reagente</option>
@@ -434,11 +434,11 @@
               <!-- ... -->
               <div class="linha">Dengue</div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="coletadengue" class="form-label">Sorologia (IgM): Data da Coleta</label>
                     <input type="date" class="form-control" id="coletadengue" formControlName="Texto64" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="resdengue" class="form-label">Resultado Sorologia (IgM)</label>
                   <select class="form-control" id="resdengue" formControlName="Texto65"  >
                       <option value="1">1 - Positivo</option>
@@ -450,11 +450,11 @@
               </div>
 
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="ns1date" class="form-label">Exame NS1: Data Coleta</label>
                     <input type="date" class="form-control" id="ns1date" formControlName="Texto66" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="resns1" class="form-label">Resultado NS1</label>
                   <select class="form-control" id="resns1" formControlName="Texto67"  >
                     <option value="1">1 - Positivo</option>
@@ -466,11 +466,11 @@
               </div>
 
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="exameprnt" class="form-label">Isolamento: Data da Coleta</label>
                     <input type="date" class="form-control" id="exameprnt" formControlName="Texto68" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="resisolamento" class="form-label">Resultado Isolamento</label>
                   <select class="form-control" id="resisolamento" formControlName="Texto69"  >
                     <option value="1">1 - Positivo</option>
@@ -482,11 +482,11 @@
               </div>
 
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="datertpcr" class="form-label">RT-PCR: Data da Coleta</label>
                     <input type="date" class="form-control" id="datertpcr" formControlName="Texto70" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="resrtpcr" class="form-label">Resultado RT-PCR</label>
                   <select class="form-control" id="resrtpcr" formControlName="Texto71"  >
                     <option value="1">1 - Positivo</option>
@@ -498,7 +498,7 @@
               </div>
 
               <div class="row">
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Sorotipo" class="form-label">Sorotipo</label>
                   <select class="form-control" id="Sorotipo" formControlName="Texto72"  >
                     <option value="1">1 - DENV 1</option>
@@ -507,7 +507,7 @@
                     <option value="4">4 - DENV 4</option>
                   </select>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Histopatologia" class="form-label">Histopatologia</label>
                   <select class="form-control" id="Histopatologia" formControlName="Texto73"  >
                     <option value="1">1 - Compatível</option>
@@ -516,7 +516,7 @@
                     <option value="4">4 - Não Realizado</option>
                   </select>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Imunohistoquimica" class="form-label">Imunohistoquímica</label>
                   <select class="form-control" id="Imunohistoquimica" formControlName="Texto74"  >
                     <option value="1">1 - Positivo</option>
@@ -530,7 +530,7 @@
               <!-- ... -->
               <div class="linha mb-3">Hospitalização</div>
               <div class="row">
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="OcorreuHospitali" class="form-label">Ocorreu Hospitalização?</label>
                   <select class="form-control" id="OcorreuHospitali" formControlName="Texto75"  >
                     <option value="1">1 - Sim</option>
@@ -539,20 +539,20 @@
                   </select>
                 </div>
 
-                <div class="col-2 mb-3">
+                <div class="col-md-2 mb-3">
                   <label for="dateinternate" class="form-label">Data da internação</label>
                   <input type="date" class="form-control" id="dateinternate" formControlName="Texto76" >
                 </div>
 
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ufhospital" class="form-label">UF</label>
                       <select class="form-control" id="ufhospital" formControlName="Texto77" #ufhospital (change)="loadMunicipios(ufhospital.value)">
                         <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                       </select>
                   </div>
 
-                  <div class="col-3 mb-3">
+                  <div class="col-md-3 mb-3">
                       <label for="cityhospital" class="form-label">Município de Notificação</label>
                       <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                       <select class="form-control" id="cityhospital" formControlName="Texto78" #cityhospital (change)="loadIbgeCode(cityhospital.value, 'Texto79')">
@@ -560,7 +560,7 @@
                       </select>
                   </div>
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ibgeCodehospital" class="form-label">Código IBGE</label>
                       <input type="text" class="form-control" id="ibgeCodehospital" formControlName="Texto79" readonly>
                   </div>
@@ -568,16 +568,16 @@
                 </div>
               <div class="row">
 
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="hospitalnome" class="form-label">Nome do Hospital</label>
                   <input type="text" class="form-control" id="hospitalnome" formControlName="Texto80"  >
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="codehospital" class="form-label">Código</label>
                   <input type="text" class="form-control" id="codehospital" formControlName="Texto81"   mask="9{7}">
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="telefonehospital" class="form-label">(DDD) Telefone</label>
                   <input type="text" class="form-control" id="telefonehospital" formControlName="Texto82"   mask="(00)00000-0000">
                 </div>
@@ -588,7 +588,7 @@
 
               <div class="row">
 
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="autoctone" class="form-label">O caso é autóctone do município de residência?</label>
                   <select class="form-control" id="autoctone" formControlName="Texto83"  >
                     <option value="1">1 - Sim</option>
@@ -597,21 +597,21 @@
                   </select>
                 </div>
 
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="ufautoctone" class="form-label">UF</label>
                   <select class="form-control" id="ufautoctone" formControlName="Texto84" #ufautoctone (change)="loadMunicipios(ufautoctone.value)">
                     <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                   </select>
                 </div>
 
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="paisautoctone" class="form-label">País</label>
                   <input type="text" class="form-control" id="paisautoctone" formControlName="Texto85"  >
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="cityautoctone" class="form-label">Município de Residência</label>
                   <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                   <select class="form-control" id="cityautoctone" formControlName="Texto86" #cityautoctone (change)="loadIbgeCode(cityautoctone.value, 'Texto87')">
@@ -619,23 +619,23 @@
                   </select>
                 </div>
 
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="ibgeCodeautoctone" class="form-label">Código IBGE</label>
                   <input type="text" class="form-control" id="ibgeCodeautoctone" formControlName="Texto87" readonly>
                 </div>
 
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="distritoautoctone" class="form-label">Distrito</label>
                     <input type="text" class="form-control" id="distritoautoctone" formControlName="Texto88" >
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                     <label for="bairroautoctone" class="form-label">Bairro</label>
                     <input type="text" class="form-control" id="bairroautoctone" formControlName="Texto89" >
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="classd1" class="form-label">Classificação</label>
                   <select class="form-control" id="classd1" formControlName="Texto90"  >
                       <option value="5">5 - Descartado</option>
@@ -645,7 +645,7 @@
                       <option value="13">13 - Chikungunya</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="criteriocd" class="form-label">Critério de Confirmação/Descarte</label>
                   <select class="form-control" id="criteriocd" formControlName="Texto91"  >
                       <option value="1">1 - Laboratório</option>
@@ -653,14 +653,14 @@
                       <option value="3">3 - -Em investigação</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="criteriocd" class="form-label">Apresentação Clínica</label>
                   <select class="form-control" id="criteriocd" formControlName="Texto92"  >
                       <option value="1">1 - Aguda</option>
                       <option value="2">2 - Crônica</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="classd1" class="form-label">Evolição do Caso</label>
                   <select class="form-control" id="classd1" formControlName="Texto93"  >
                       <option value="1">1 - Cura</option>
@@ -673,11 +673,11 @@
 
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="dateobito" class="form-label">Data do Óbito</label>
                   <input type="date" class="form-control" id="dateobito" formControlName="Texto94" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="dateencerramento" class="form-label">Data do Encerramento</label>
                   <input type="date" class="form-control" id="dateencerramento" formControlName="Texto95" >
                 </div>
@@ -697,126 +697,126 @@
           <div class="card-body">
             <div class="linha mb-3">Dengue com sinais de alarme</div>
             <div class="row">
-              <div class="col-4 mb-3 form-check form-switch">
+              <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Hipotensao" formControlName="Texto96" >
                   <label for="Hipotensao" class="form-check-label">Hipotensão postural e/ou lipotímia</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="quedaplaquetas" formControlName="Texto97" >
                   <label for="quedaplaquetas" class="form-check-label">Queda abrupta de plaquetas</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="vomitospersistentes" formControlName="Texto98" >
                   <label for="vomitospersistentes" class="form-check-label">Vômitos persistentes</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="dorabdominalintensaecon" formControlName="Texto99" >
                   <label for="dorabdominalintensaecon" class="form-check-label">Dor abdominal intensa e contínua</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="letargiaouirritabilidade" formControlName="Texto100" >
                   <label for="letargiaouirritabilidade" class="form-check-label">Letargia ou irritabilidade</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="sangramentoehemorragias" formControlName="Texto101" >
                   <label for="sangramentoehemorragias" class="form-check-label">Sangramento de mucosa/outras hemorragias</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="hematocritoaumento" formControlName="Texto102" >
                   <label for="hematocritoaumento" class="form-check-label">Aumento progressivo do hematócrito</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Hepatomegalia" formControlName="Texto103" >
                   <label for="Hepatomegalia" class="form-check-label">Hepatomegalia >= 2cm</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="acumulodeliquidos" formControlName="Texto104" >
                   <label for="acumulodeliquidos" class="form-check-label">Acúmulo de líquidos</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-12 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="datesinaisinicio" class="form-label">Data de início dos sinais de alarme:</label>
                   <input type="date" class="form-control" id="datesinaisinicio" formControlName="Texto105" >
                 </div>
               </div>
               <div class="linha mb-3">Dengue grave: Extravasamento grave de plasma</div>
               <div class="row">
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="pulsodebil" formControlName="Texto106" >
                   <label for="pulsodebil" class="form-check-label">Pulso débil ou indetectável</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="paconvergente" formControlName="Texto107" >
                   <label for="paconvergente" class="form-check-label">PA convergente <= 20 mmHg</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="tempodeenchimentocapilar" formControlName="Texto108" >
                   <label for="tempodeenchimentocapilar" class="form-check-label">Tempo de enchimento capilar</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="acumulodeliquidoscominsuficienciarespiratoria" formControlName="Texto109" >
                   <label for="acumulodeliquidoscominsuficienciarespiratoria" class="form-check-label">Acúmulo de líquidos com insuficiência respiratória</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="taquicardia" formControlName="Texto110" >
                   <label for="taquicardia" class="form-check-label">Taquicardia</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="extremidadesfrias" formControlName="Texto111" >
                   <label for="extremidadesfrias" class="form-check-label">Extremidades frias</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="hipotensaoemfasetardia" formControlName="Texto112" >
                   <label for="hipotensaoemfasetardia" class="form-check-label">Hipotensão arterial em fase tardia</label>
                 </div>
               </div>
               <div class="linha mb-3">Dengue grave: Sangramento grave</div>
               <div class="row">
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="hematemese" formControlName="Texto113" >
                   <label for="hematemese" class="form-check-label">Hematêmese</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Melena" formControlName="Texto114" >
                   <label for="Melena" class="form-check-label">Melena</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Metrorragia" formControlName="Texto117" >
                   <label for="Metrorragia" class="form-check-label">Metrorragia volumosa</label>
                 </div>
-                <div class="col-3 mb-3 form-check form-switch">
+                <div class="col-md-3 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="snc" formControlName="Texto118" >
                   <label for="snc" class="form-check-label">Sangramento do SNC</label>
                 </div>
               </div>
               <div class="linha mb-3">Dengue grave: Compromentimento grave de órgãos:</div>
               <div class="row">
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="astalt" formControlName="Texto115" >
                   <label for="astalt" class="form-check-label">AST/ALT > 1.000</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="Miocardite" formControlName="Texto119" >
                   <label for="Miocardite" class="form-check-label">Miocardite</label>
                 </div>
-                <div class="col-4 mb-3 form-check form-switch">
+                <div class="col-md-4 mb-3 form-check form-switch">
                   <input type="checkbox" class="form-check-input" id="altconsciencia" formControlName="Texto120">
                   <label for="altconsciencia" class="form-check-label">Alteração da consciência</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="outrosorgaos" class="form-label">Outros órgãos, especificar:</label>
                   <input type="text" class="form-control" id="outrosorgaos" formControlName="Texto116" >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="dategravidadeinicio" class="form-label">Data de início dos sinais de gravidade:</label>
                   <input type="date" class="form-control" id="dategravidadeinicio" formControlName="Texto121">
                 </div>
@@ -847,25 +847,25 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-6 mb-3">
+                  <div class="col-md-6 mb-3">
                       <label for="unidadeSaude" class="form-label">Município/Unidade de Saúde</label>
                       <input type="text" class="form-control" id="unidadeSaude" formControlName="Texto123"  >
                   </div>
-                  <div class="col-6 mb-3">
+                  <div class="col-md-6 mb-3">
                       <label for="codigoUnidadeSaude" class="form-label">Código da Unid. de Saúde</label>
                       <input type="text" class="form-control" id="codigoUnidadeSaude" formControlName="Texto124">
                   </div>
               </div>
               <div class="row">
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="nomeInvestigador" class="form-label">Nome</label>
                       <input type="text" class="form-control" id="nomeInvestigador" formControlName="Texto125">
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="funcaoInvestigador" class="form-label">Função</label>
                       <input type="text" class="form-control" id="funcaoInvestigador" formControlName="Texto126">
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="assinaturaInvestigador" class="form-label">Assinatura</label>
                       <input type="text" class="form-control" id="assinaturaInvestigador" formControlName="Texto127">
                   </div>

@@ -20,6 +20,7 @@ export class ListaAgravosComponent {
     { id: 8, nome: 'Tuberculose' },
     { id: 9, nome: 'Aids Criança' },
     { id: 10, nome: 'Raiva Humana' },
+    { id: 11, nome: 'Violência Interpessoal' },
   ];
 
   agravoSelecionado: number = 0;

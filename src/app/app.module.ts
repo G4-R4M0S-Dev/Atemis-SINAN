@@ -20,6 +20,7 @@ import { SifilisCongenitaComponent } from './agravos/sifilis-congenita/sifilis-c
 import { NotificacaoComponent } from './agravos/notificacao/notificacao.component';
 import { AidsCriancaComponent } from './agravos/aids-crianca/aids-crianca.component';
 import { RaivaHumanaComponent } from './agravos/raiva-humana/raiva-humana.component';
+import { ViolenciaInterpessoalComponent } from './agravos/violencia-interpessoal/violencia-interpessoal.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { RaivaHumanaComponent } from './agravos/raiva-humana/raiva-humana.compon
     SifilisCongenitaComponent,
     NotificacaoComponent,
     AidsCriancaComponent,
-    RaivaHumanaComponent
+    RaivaHumanaComponent,
+    ViolenciaInterpessoalComponent
   ],
   imports: [
     BrowserModule,

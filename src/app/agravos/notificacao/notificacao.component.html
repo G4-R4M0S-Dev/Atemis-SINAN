@@ -11,7 +11,7 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="Texto1" class="form-label">Tipo de Notificação</label>
                 <select class="form-control" id="Texto1" formControlName="Texto1"  >
                     <option value="1">1 - Negativa</option>
@@ -21,26 +21,26 @@
                 </select>
               </div>
 
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="Texto2" class="form-label">Agravo / Doença</label>
                 <input type="text" class="form-control" id="Texto2" formControlName="Texto2" >
               </div>
 
 
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="notificationDate" class="form-label">Data da Notificação</label>
                   <input type="date" class="form-control" id="notificationDate" formControlName="Texto3"  >
               </div>
             </div>
             <div class="row">
-              <div class="col-2 mb-3">
+              <div class="col-md-2 mb-3">
                   <label for="uf" class="form-label">UF</label>
                   <select class="form-control" id="uf" formControlName="Texto4" #ufSelect (change)="loadMunicipios(ufSelect.value)">
                     <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                   </select>
               </div>
 
-              <div class="col-6 mb-3">
+              <div class="col-md-6 mb-3">
                   <label for="city" class="form-label">Município de Notificação</label>
                   <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                   <select class="form-control" id="city" formControlName="Texto5" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto6')">
@@ -48,13 +48,13 @@
                   </select>
               </div>
 
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="ibgeCode" class="form-label">Código IBGE</label>
                   <input type="text" class="form-control" id="ibgeCode" formControlName="Texto6" readonly>
               </div>
           </div>
           <div class="row">
-            <div class="col-4 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="healthUnit" class="form-label">Unidade de Saúde</label>
                 <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                 <select formControlName="Texto7" class="form-control" id="healthUnit" (change)="updateCnesValue($event, 'Texto8')">
@@ -64,12 +64,12 @@
               </select>
             </div>
 
-            <div class="col-4 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="code" class="form-label">Código (CNES)</label>
                 <input type="text" class="form-control" id="code" formControlName="Texto8" readonly>
             </div>
 
-            <div class="col-4 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="diagnosisDate" class="form-label">Data dos Primeiros Sintomas</label>
                 <input type="date" class="form-control" id="diagnosisDate" formControlName="Texto9"  >
             </div>
@@ -83,22 +83,22 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-5 mb-3">
+              <div class="col-md-5 mb-3">
                   <label for="patientName" class="form-label">Nome do Paciente</label>
                   <input type="text" class="form-control" id="patientName" formControlName="Texto10"  >
               </div>
 
-              <div class="col-3 mb-3">
+              <div class="col-md-3 mb-3">
                   <label for="birthDate" class="form-label">Data de nascimento</label>
                   <input type="date" class="form-control" id="birthDate" formControlName="Texto11"  >
               </div>
 
-              <div class="col-2 mb-3">
+              <div class="col-md-2 mb-3">
                   <label for="age" class="form-label">Idade</label>
                   <input type="text" class="form-control" id="age" formControlName="Texto12"   mask="9{3}">
               </div>
 
-              <div class="col-2 mb-3">
+              <div class="col-md-2 mb-3">
                   <label for="gender" class="form-label">Sexo</label>
                   <select class="form-control" id="gender" formControlName="Texto13"  >
                       <option selected value="M">Masculino</option>
@@ -110,7 +110,7 @@
 
             <div class="row">
               <!-- Campo Gestante -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="gestante" class="form-label">Gestante</label>
                   <select class="form-control" id="gestante" formControlName="Texto14"  >
                       <option value="1">1 - 1° trimestre</option>
@@ -124,7 +124,7 @@
               </div>
 
               <!-- Campo Raça/cor -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="racaCor" class="form-label">Raça/cor</label>
                   <select class="form-control" id="racaCor" formControlName="Texto15"  >
                       <option value="1">1 - Branca</option>
@@ -137,7 +137,7 @@
               </div>
 
               <!-- Campo Escolaridade -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="escolaridade" class="form-label">Escolaridade</label>
                   <select class="form-control" id="escolaridade" formControlName="Texto16"  >
                       <option value="0">0 - Analfabeto</option>
@@ -158,12 +158,12 @@
 
             <div class="row">
               <!-- Campo Número do cartão SUS -->
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="cartaoSUS" class="form-label">Número do cartão SUS</label>
                 <input type="text" class="form-control" id="cartaoSUS" formControlName="Texto17"  #cartaoSUSControl="" pattern="^\d{15}$">
               </div>
               <!-- Campo Nome da mãe -->
-              <div class="col-8 mb-3">
+              <div class="col-md-8 mb-3">
                   <label for="nomeMae" class="form-label">Nome da mãe</label>
                   <input type="text" class="form-control" id="nomeMae" formControlName="Texto18"  >
               </div>
@@ -178,17 +178,17 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-6 mb-3">
+              <div class="col-md-6 mb-3">
                   <label for="Texto19" class="form-label">Data dos 1°Sintomas do 1º Caso Suspeito</label>
                   <input type="date" class="form-control" id="Texto19" formControlName="Texto19">
               </div>
-              <div class="col-6 mb-3">
+              <div class="col-md-6 mb-3">
                   <label for="Texto20" class="form-label">Nº de Casos Suspeitos/Expostos</label>
                   <input type="text" class="form-control" id="Texto20" formControlName="Texto20">
               </div>
             </div>
             <div class="row">
-              <div class="col-6 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="Texto21" class="form-label">Local Inicial de Ocorrência do Surto</label>
                 <select class="form-control" id="Texto21" formControlName="Texto21"  >
                     <option value="1">1 - Residência</option>
@@ -204,7 +204,7 @@
                     <option value="11">11 - Outros</option>
                 </select>
             </div>
-              <div class="col-6 mb-3">
+              <div class="col-md-6 mb-3">
                   <label for="Texto22" class="form-label">Especificar</label>
                   <input type="text" class="form-control" id="Texto22" formControlName="Texto22"  >
               </div>
@@ -220,74 +220,74 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                     <label for="cep" class="form-label">CEP</label>
                     <input type="text" class="form-control" id="cep" formControlName="Texto35" mask="00000-000" #cep (change)="onCepChange(cep.value)">
                     <div *ngIf="hasError" class="error-message">Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.</div>
                   </div>
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ufResidencia" class="form-label">UF</label>
                       <input type="text" class="form-control" id="ufResidencia" formControlName="Texto23"   maxlength="2">
                   </div>
 
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="cityResidencia" class="form-label">Município de Residência</label>
                       <input type="text" class="form-control" id="cityResidencia" formControlName="Texto24"  >
                   </div>
 
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="ibgeCodeResidencia" class="form-label">Código IBGE</label>
                       <input type="text" class="form-control" id="ibgeCodeResidencia" formControlName="Texto25"   mask="9{7}">
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="distrito" class="form-label">Distrito</label>
                       <input type="text" class="form-control" id="distrito" formControlName="Texto26" >
                   </div>
               </div>
               <div class="row">
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="bairro" class="form-label">Bairro</label>
                       <input type="text" class="form-control" id="bairro" formControlName="Texto27" >
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="logradouro" class="form-label">Logradouro</label>
                       <input type="text" class="form-control" id="logradouro" formControlName="Texto28" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="codigo" class="form-label">Código</label>
                       <input type="text" class="form-control" id="codigo" formControlName="Texto29" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="numero" class="form-label">Número</label>
                       <input type="text" class="form-control" id="numero" formControlName="Texto30" >
                   </div>
               </div>
               <div class="row">
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="complemento" class="form-label">Complemento</label>
                       <input type="text" class="form-control" id="complemento" formControlName="Texto31" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="geoCampo1" class="form-label">Geo Campo 1</label>
                       <input type="text" class="form-control" id="geoCampo1" formControlName="Texto32" >
                   </div>
-                  <div class="col-2 mb-3">
+                  <div class="col-md-2 mb-3">
                       <label for="geoCampo2" class="form-label">Geo Campo 2</label>
                       <input type="text" class="form-control" id="geoCampo2" formControlName="Texto33" >
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="pontoReferencia" class="form-label">Ponto de Referência</label>
                       <input type="text" class="form-control" id="pontoReferencia" formControlName="Texto34" >
                   </div>
               </div>
               <div class="row">
 
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="telefone" class="form-label">(DDD) Telefone</label>
                       <input type="text" class="form-control" id="telefone" formControlName="Texto36"   mask="(00)00000-0000">
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="zona" class="form-label">Zona</label>
                       <select class="form-control" id="zona" formControlName="Texto37"  >
                           <option value="1">1 - Urbana</option>
@@ -296,7 +296,7 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-                  <div class="col-4 mb-3">
+                  <div class="col-md-4 mb-3">
                       <label for="pais" class="form-label">País</label>
                       <input type="text" class="form-control" id="pais" formControlName="Texto38"  >
                   </div>
@@ -310,21 +310,21 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-12 mb-3">
+              <div class="col-md-12 mb-3">
                   <label for="Texto39" class="form-label">Município/Unidade de Saúde</label>
                   <input type="text" class="form-control" id="Texto39" formControlName="Texto39"  >
               </div>
             </div>
             <div class="row">
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="Texto40" class="form-label">Nome</label>
                   <input type="text" class="form-control" id="Texto40" formControlName="Texto40"  >
               </div>
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="Texto41" class="form-label">Função</label>
                   <input type="text" class="form-control" id="Texto41" formControlName="Texto41"  >
               </div>
-              <div class="col-4 mb-3">
+              <div class="col-md-4 mb-3">
                   <label for="Texto42" class="form-label">Assinatura</label>
                   <input type="text" class="form-control" id="Texto42" formControlName="Texto42" >
               </div>
@@ -342,23 +342,23 @@
           </div>
           <div class="card-body">
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Texto43" class="form-label">Data da coleta da 1ª amostra da sorologia</label>
                     <input type="date" class="form-control" id="Texto43" formControlName="Texto43"  >
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Texto44" class="form-label">Data da coleta da 1ª amostra de outra amostra</label>
                     <input type="date" class="form-control" id="Texto44" formControlName="Texto44"  >
                 </div>
               </div>
               <div class="row">
-                <div class="col-12 mb-3">
+                <div class="col-md-12 mb-3">
                     <label for="Texto45" class="form-label">Especificar tipo de exame:</label>
                     <input type="text" class="form-control" id="Texto45" formControlName="Texto45"  >
                 </div>
               </div>
               <div class="row">
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto46" class="form-label">Óbito?</label>
                   <select class="form-control" id="Texto46" formControlName="Texto46"  >
                       <option value="1">1 - Sim</option>
@@ -366,7 +366,7 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto47" class="form-label">Contato com caso semelhante?</label>
                   <select class="form-control" id="Texto47" formControlName="Texto47"  >
                       <option value="1">1 - Sim</option>
@@ -374,7 +374,7 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto48" class="form-label">Presença de exantema?</label>
                   <select class="form-control" id="Texto48" formControlName="Texto48"  >
                       <option value="1">1 - Sim</option>
@@ -382,13 +382,13 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto49" class="form-label">Data do início do exatema</label>
                   <input type="date" class="form-control" id="Texto49" formControlName="Texto49"  >
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="Texto50" class="form-label">Presença de petéquias ou sufusões hemorrágicas ?</label>
                   <select class="form-control" id="Texto50" formControlName="Texto50"  >
                       <option value="1">1 - Sim</option>
@@ -396,7 +396,7 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto51" class="form-label">Foi realizado líquor ?</label>
                   <select class="form-control" id="Texto51" formControlName="Texto51"  >
                       <option value="1">1 - Sim</option>
@@ -404,14 +404,14 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-3 mb-3">
+                <div class="col-md-3 mb-3">
                   <label for="Texto52" class="form-label">Resultado da bacterioscopia:</label>
                   <input type="text" class="form-control" id="Texto52" formControlName="Texto52"  >
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-8 mb-3">
+                <div class="col-md-8 mb-3">
                   <label for="Texto53" class="form-label">O paciente tomou vacina contra agravo notificado neste impresso?</label>
                   <select class="form-control" id="Texto53" formControlName="Texto53"  >
                       <option value="1">1 - Sim</option>
@@ -419,13 +419,13 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Texto54" class="form-label">Data da última dose tomada</label>
                   <input type="date" class="form-control" id="Texto54" formControlName="Texto54">
                 </div>
               </div>
               <div class="row">
-                <div class="col-8 mb-3">
+                <div class="col-md-8 mb-3">
                   <label for="Texto55" class="form-label">Ocorreu hospitalização?</label>
                   <select class="form-control" id="Texto55" formControlName="Texto55"  >
                       <option value="1">1 - Sim</option>
@@ -433,7 +433,7 @@
                       <option value="9">9 - Ignorado</option>
                   </select>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Texto56" class="form-label">Data da hospitalização</label>
                   <input type="date" class="form-control" id="Texto56" formControlName="Texto56">
                 </div>
@@ -441,14 +441,14 @@
 
 
               <div class="row">
-                <div class="col-2 mb-3">
+                <div class="col-md-2 mb-3">
                   <label for="Texto57" class="form-label">UF</label>
                   <select class="form-control" id="Texto57" formControlName="Texto57" #Texto57 (change)="loadMunicipios(Texto57.value)">
                     <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                   </select>
                 </div>
 
-                <div class="col-8 mb-3">
+                <div class="col-md-8 mb-3">
                     <label for="Texto58" class="form-label">Município do hospital</label>
                     <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                     <select class="form-control" id="Texto58" formControlName="Texto58" #Texto58Select (change)="loadIbgeCode(Texto58Select.value, 'Texto59')">
@@ -456,17 +456,17 @@
                     </select>
                 </div>
 
-                <div class="col-2 mb-3">
+                <div class="col-md-2 mb-3">
                     <label for="Texto59" class="form-label">Código IBGE</label>
                     <input type="text" class="form-control" id="Texto59" formControlName="Texto59">
                 </div>
               </div>
               <div class="row">
-                <div class="col-8 mb-3">
+                <div class="col-md-8 mb-3">
                   <label for="Texto60" class="form-label">Nome do hospital</label>
                   <input type="text" class="form-control" id="Texto60" formControlName="Texto60">
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Texto61" class="form-label">Código</label>
                   <input type="text" class="form-control" id="Texto61" formControlName="Texto61">
                 </div>
@@ -485,29 +485,29 @@
             <div class="card-body">
               <div class="linha">Hipóteses diagnósticas no momento da notificação</div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Texto62" class="form-label">1ª Hipótese Diagnóstica - CID 10</label>
                     <input type="text" class="form-control" id="Texto62" formControlName="Texto62">
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="Texto63" class="form-label">2ª Hipótese Diagnóstica - CID 10</label>
                     <input type="text" class="form-control" id="Texto63" formControlName="Texto63">
                 </div>
               </div>
               <div class="linha">Local provável de infecção (classificação provisória )</div>
               <div class="row">
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="Texto64" class="form-label">País</label>
                   <input type="text" class="form-control" id="Texto64" formControlName="Texto64">
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                     <label for="Texto66" class="form-label">UF</label>
                     <select class="form-control" id="Texto66" formControlName="Texto66" #Texto66 (change)="loadMunicipios(Texto66.value)">
                       <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                     </select>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-md-4 mb-3">
                     <label for="Texto67" class="form-label">Município de Notificação</label>
                     <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                     <select class="form-control" id="Texto67" formControlName="Texto67" #Texto67>
@@ -516,11 +516,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="Texto65" class="form-label">Distrito</label>
                   <input type="text" class="form-control" id="Texto65" formControlName="Texto65">
                 </div>
-                <div class="col-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="Texto68" class="form-label">Bairro</label>
                   <input type="text" class="form-control" id="Texto68" formControlName="Texto68">
                 </div>
