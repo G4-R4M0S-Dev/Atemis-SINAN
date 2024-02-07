@@ -4,6 +4,10 @@
 #agravoModal .modal-content {
 transform: scale(0.95);
 }
+.modal-xl {
+  max-width: 70%;
+}
+
 .header-image {
 margin-bottom: 20px; /* Adicione espaço abaixo da imagem, se necessário */
 text-align: center; /* Se você quiser centralizar a imagem */

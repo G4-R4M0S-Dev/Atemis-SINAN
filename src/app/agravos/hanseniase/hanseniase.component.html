@@ -11,35 +11,33 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-3 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <label for="city" class="form-label">Tipo de Notificação</label>
                 <input type="text" class="form-control" id="tiponotificacao" name="tiponotificacao" placeholder="Individual" value="Individual" disabled="true" >
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <label for="city" class="form-label">Agravo/doença</label>
                 <input type="text" class="form-control" id="agravo" name="agravo" placeholder="Hanseníase" value="Hanseníase" disabled="true" >
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                 <label for="city" class="form-label">Código (CID10)</label>
                 <input type="text" class="form-control" id="cid10" name="cid10" placeholder="A30.9" value="A30.9" disabled="true" >
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                   <label for="notificationDate" class="form-label">Data do Diagnóstico</label>
                   <input type="date" class="form-control" id="notificationDate" formControlName="Texto1"  >
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                   <label for="uf" class="form-label">UF</label>
                   <select class="form-control" id="uf" formControlName="Texto2" #ufSelect (change)="loadMunicipios(ufSelect.value)">
                     <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
                   </select>
               </div>
 
-              <div class="col-md-6 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                   <label for="city" class="form-label">Município de Notificação</label>
                   <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                   <select class="form-control" id="city" formControlName="Texto3" #citySelect (change)="loadIbgeCode(citySelect.value, 'Texto4')">
@@ -47,13 +45,11 @@
                   </select>
               </div>
 
-              <div class="col-md-4 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                   <label for="ibgeCode" class="form-label">Código IBGE</label>
                   <input type="text" class="form-control" id="ibgeCode" formControlName="Texto4" readonly>
               </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                 <label for="healthUnit" class="form-label">Unidade de Saúde</label>
                 <!--SEMPRE LEMBRAR QUE A FUNÇÃO LOADIBGECODE TEM COMO ARGUMENTO O PROXIMO CAMPO QUE IRÁ CARREGAR O VALOR-->
                 <select formControlName="Texto5" class="form-control" id="healthUnit" (change)="updateCnesValue($event, 'Texto6')">
@@ -63,12 +59,12 @@
               </select>
             </div>
 
-            <div class="col-md-4 mb-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                 <label for="code" class="form-label">Código (CNES)</label>
                 <input type="text" class="form-control" id="code" formControlName="Texto6" readonly>
             </div>
 
-            <div class="col-md-4 mb-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                 <label for="diagnosisDate" class="form-label">Data dos Primeiros Sintomas</label>
                 <input type="date" class="form-control" id="diagnosisDate" formControlName="Texto7"  >
             </div>
@@ -82,22 +78,22 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-5 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-5 mb-3">
                   <label for="patientName" class="form-label">Nome do Paciente</label>
                   <input type="text" class="form-control" id="patientName" formControlName="Texto8"  >
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                   <label for="birthDate" class="form-label">Data de nascimento</label>
                   <input type="date" class="form-control" id="birthDate" formControlName="Texto9"  >
               </div>
 
-              <div class="col-md-2 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                   <label for="age" class="form-label">Idade</label>
                   <input type="text" class="form-control" id="age" formControlName="Texto10"   mask="9{3}">
               </div>
 
-              <div class="col-md-2 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                   <label for="gender" class="form-label">Sexo</label>
                   <select class="form-control" id="gender" formControlName="Texto12"  >
                       <option value="M">Masculino</option>
@@ -105,11 +101,8 @@
                       <option value="I">Ignorado</option>
                   </select>
               </div>
-            </div>
-
-            <div class="row">
               <!-- Campo Gestante -->
-              <div class="col-md-4 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                   <label for="gestante" class="form-label">Gestante</label>
                   <select class="form-control" id="gestante" formControlName="Texto13"  >
                       <option value="1">1 - 1° trimestre</option>
@@ -123,7 +116,7 @@
               </div>
 
               <!-- Campo Raça/cor -->
-              <div class="col-md-4 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                   <label for="racaCor" class="form-label">Raça/cor</label>
                   <select class="form-control" id="racaCor" formControlName="Texto14"  >
                       <option value="1">1 - Branca</option>
@@ -136,7 +129,7 @@
               </div>
 
               <!-- Campo Escolaridade -->
-              <div class="col-md-4 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                   <label for="escolaridade" class="form-label">Escolaridade</label>
                   <select class="form-control" id="escolaridade" formControlName="Texto15"  >
                       <option value="0">0 - Analfabeto</option>
@@ -152,17 +145,13 @@
                       <option value="10">10 - Não se aplica</option>
                   </select>
               </div>
-
-            </div>
-
-            <div class="row">
               <!-- Campo Número do cartão SUS -->
-              <div class="col-md-4 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                 <label for="cartaoSUS" class="form-label">Número do cartão SUS</label>
                 <input type="text" class="form-control" id="cartaoSUS" formControlName="Texto16"  #cartaoSUSControl="" pattern="^\d{15}$">
               </div>
               <!-- Campo Nome da mãe -->
-              <div class="col-md-8 mb-3">
+              <div class="col-sm-12 col-md-6 col-lg-8 mb-3">
                   <label for="nomeMae" class="form-label">Nome da mãe</label>
                   <input type="text" class="form-control" id="nomeMae" formControlName="Texto17"  >
               </div>
@@ -179,74 +168,67 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                     <label for="cep" class="form-label">CEP</label>
                     <input type="text" class="form-control" id="cep" formControlName="Texto30" mask="00000-000" #cep (change)="onCepChange(cep.value)">
                     <div *ngIf="hasError" class="error-message">Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.</div>
                   </div>
 
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="ufResidencia" class="form-label">UF</label>
                       <input type="text" class="form-control" id="ufResidencia" formControlName="Texto18"   maxlength="2">
                   </div>
 
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="cityResidencia" class="form-label">Município de Residência</label>
                       <input type="text" class="form-control" id="cityResidencia" formControlName="Texto19"  >
                   </div>
 
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="ibgeCodeResidencia" class="form-label">Código IBGE</label>
                       <input type="text" class="form-control" id="ibgeCodeResidencia" formControlName="Texto20"   mask="9{7}">
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="distrito" class="form-label">Distrito</label>
                       <input type="text" class="form-control" id="distrito" formControlName="Texto21" >
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="bairro" class="form-label">Bairro</label>
                       <input type="text" class="form-control" id="bairro" formControlName="Texto22" >
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="logradouro" class="form-label">Logradouro</label>
                       <input type="text" class="form-control" id="logradouro" formControlName="Texto23" >
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="codigo" class="form-label">Código</label>
                       <input type="text" class="form-control" id="codigo" formControlName="Texto24" >
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="numero" class="form-label">Número</label>
                       <input type="text" class="form-control" id="numero" formControlName="Texto25" >
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="complemento" class="form-label">Complemento</label>
                       <input type="text" class="form-control" id="complemento" formControlName="Texto26" >
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="geoCampo1" class="form-label">Geo Campo 1</label>
                       <input type="text" class="form-control" id="geoCampo1" formControlName="Texto27" >
                   </div>
-                  <div class="col-md-2 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-2 mb-3">
                       <label for="geoCampo2" class="form-label">Geo Campo 2</label>
                       <input type="text" class="form-control" id="geoCampo2" formControlName="Texto28" >
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="pontoReferencia" class="form-label">Ponto de Referência</label>
                       <input type="text" class="form-control" id="pontoReferencia" formControlName="Texto29" >
                   </div>
-              </div>
-              <div class="row">
-
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="telefone" class="form-label">(DDD) Telefone</label>
                       <input type="text" class="form-control" id="telefone" formControlName="Texto31"   mask="(00)00000-0000">
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="zona" class="form-label">Zona</label>
                       <select class="form-control" id="zona" formControlName="Texto32"  >
                           <option value="1">1 - Urbana</option>
@@ -255,7 +237,7 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="pais" class="form-label">País</label>
                       <input type="text" class="form-control" id="pais" formControlName="Texto33"  >
                   </div>
@@ -273,21 +255,19 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="prontuario" class="form-label">N° Prontuário</label>
                       <input type="text" class="form-control" id="prontuario" formControlName="Texto34"  >
                   </div>
-                  <div class="col-md-8 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-8 mb-3">
                       <label for="ocupacao" class="form-label">Ocupação</label>
                       <input type="text" class="form-control" id="ocupacao" formControlName="Texto35"  >
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="lesoesCutaneas" class="form-label">N° de Lesões Cutâneas</label>
                       <input type="number" class="form-control" id="lesoesCutaneas" formControlName="Texto36"  >
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="formaClinica" class="form-label">Forma Clínica</label>
                       <select class="form-control" id="formaClinica" formControlName="Texto37"  >
                           <option value="1">1 - I</option>
@@ -297,20 +277,18 @@
                           <option value="5">5 - Não classificado</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="classificacaoOperacional" class="form-label">Classificação Operacional</label>
                       <select class="form-control" id="classificacaoOperacional" formControlName="Texto38"  >
                           <option value="1">1 - PB</option>
                           <option value="2">2 - MB</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="nervosAfetados" class="form-label">N° de Nervos afetados</label>
                       <input type="number" class="form-control" id="nervosAfetados" formControlName="Texto39"  >
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                       <label for="incapacidadeFisica" class="form-label">Avaliação do Grau de incapacidade Física no Diagnóstico</label>
                       <select class="form-control" id="incapacidadeFisica" formControlName="Texto40"  >
                           <option value="0">0 - Grau zero</option>
@@ -319,7 +297,7 @@
                           <option value="3">3 - Não Avaliado</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="modoEntrada" class="form-label">Modo de Entrada</label>
                       <select class="form-control" id="modoEntrada" formControlName="Texto41"  >
                           <option value="1">1 - Caso Novo</option>
@@ -332,7 +310,7 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="modoDetecao" class="form-label">Modo de Detecção do Caso Novo</label>
                       <select class="form-control" id="modoDetecao" formControlName="Texto42"  >
                           <option value="1">1 - Encaminhamento</option>
@@ -343,9 +321,7 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="baciloscopia" class="form-label">Baciloscopia</label>
                       <select class="form-control" id="baciloscopia" formControlName="Texto43"  >
                           <option value="1">1 - Positiva</option>
@@ -354,11 +330,11 @@
                           <option value="9">9 - Ignorado</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="inicioTratamento" class="form-label">Data do Inicio do Tratamento</label>
                       <input type="date" class="form-control" id="inicioTratamento" formControlName="Texto44"  >
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="esquemaTerapeutico" class="form-label">Esquema Terapêutico Inicial</label>
                       <select class="form-control" id="esquemaTerapeutico" formControlName="Texto45"  >
                           <option value="1">1 - PQT/PB/6 doses</option>
@@ -366,13 +342,11 @@
                           <option value="3">3 - Outros Esquemas Substitutos</option>
                       </select>
                   </div>
-                  <div class="col-md-3 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
                       <label for="contatosRegistrados" class="form-label">Número de Contatos Registrados</label>
                       <input type="number" class="form-control" id="contatosRegistrados" formControlName="Texto46"  >
                   </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 mb-3">
+                <div class="col-sm-12 col-md-6 col-lg-12 mb-3">
                   <label for="observacoes" class="form-label">Observações</label>
                   <input type="text" class="form-control" id="observacoes" formControlName="Texto47" >
               </div>
@@ -390,25 +364,23 @@
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                       <label for="unidadeSaude" class="form-label">Município/Unidade de Saúde</label>
                       <input type="text" class="form-control" id="unidadeSaude" formControlName="Texto49"  >
                   </div>
-                  <div class="col-md-6 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                       <label for="codigoUnidadeSaude" class="form-label">Código da Unid. de Saúde</label>
                       <input type="text" class="form-control" id="codigoUnidadeSaude" formControlName="Texto52" >
                   </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="nomeInvestigador" class="form-label">Nome</label>
                       <input type="text" class="form-control" id="nomeInvestigador" formControlName="Texto50"  >
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="funcaoInvestigador" class="form-label">Função</label>
                       <input type="text" class="form-control" id="funcaoInvestigador" formControlName="Texto51"  >
                   </div>
-                  <div class="col-md-4 mb-3">
+                  <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
                       <label for="assinaturaInvestigador" class="form-label">Assinatura</label>
                       <input type="text" class="form-control" id="assinaturaInvestigador" formControlName="Texto53" >
                   </div>
