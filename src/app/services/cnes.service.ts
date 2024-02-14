@@ -14,7 +14,7 @@ export class CnesService {
   constructor(private http: HttpClient) {}
 
   private fetchPage(codigo_municipio: number, codigo_tipo_unidade: string, offset: number): Observable<any> {
-    const url = `${this.baseUrl}&codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=20&offset=${offset}`;
+    const url = `${this.baseUrl}?codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=20&offset=${offset}`;
     return this.http.get(url);
   }
 
