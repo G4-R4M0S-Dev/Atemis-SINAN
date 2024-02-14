@@ -7,9 +7,9 @@ import { concatMap, takeWhile, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CnesService {
-  // private readonly baseUrl = '/cnes/estabelecimentos?status=1';
+  private readonly baseUrl = '/cnes/estabelecimentos?status=1';
   // private readonly baseUrl = 'https://apidadosabertos.saude.gov.br/api/v1/cnes/estabelecimentos?status=1';
-  private readonly baseUrl = '/.netlify/functions/cnes';
+  // private readonly baseUrl = '/.netlify/functions/cnes';
 
   constructor(private http: HttpClient) {}
 
