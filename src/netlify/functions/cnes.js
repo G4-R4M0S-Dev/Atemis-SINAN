@@ -1,0 +1,20 @@
+const axios = require('axios');
+
+exports.handler = async function(event, context) {
+  const { codigo_municipio, codigo_tipo_unidade, limit, offset } = event.queryStringParameters;
+
+  const url = `https://apidadosabertos.saude.gov.br/api/v1/cnes/estabelecimentos?status=1&codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=${limit}&offset=${offset}`;
+
+  try {
+    const response = await axios.get(url);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response.data)
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed to fetch data' })
+    };
+  }
+};
