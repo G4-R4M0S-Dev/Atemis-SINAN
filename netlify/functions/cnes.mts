@@ -11,7 +11,7 @@ interface Event {
 exports.handler = async function(event: Event) {
   const { codigo_municipio, codigo_tipo_unidade, offset } = event.queryStringParameters;
 
-  const url = `https://apidadosabertos.saude.gov.br/api/v1/cnes/estabelecimentos?status=1&codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=20&offset=${offset}`;
+  const url = `https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?status=1&codigo_municipio=${codigo_municipio}&codigo_tipo_unidade=${codigo_tipo_unidade}&limit=20&offset=${offset}`;
 
   try {
     const response = await axios.get(url);
