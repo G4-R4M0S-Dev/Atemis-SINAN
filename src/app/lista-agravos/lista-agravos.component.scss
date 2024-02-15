@@ -1,18 +1,31 @@
 #agravoModal .modal-dialog {
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 #agravoModal .modal-content {
-transform: scale(0.95);
+  transform: scale(0.95);
 }
 .modal-xl {
   max-width: 70%;
 }
 
 .header-image {
-margin-bottom: 20px; /* Adicione espaço abaixo da imagem, se necessário */
-text-align: center; /* Se você quiser centralizar a imagem */
+  margin-bottom: 20px; /* Adicione espaço abaixo da imagem, se necessário */
+  text-align: center; /* Se você quiser centralizar a imagem */
 }
 
 .header-image img {
-max-height: 150px; /* Ajuste para o tamanho desejado */
+  max-height: 150px; /* Ajuste para o tamanho desejado */
+}
+
+@media (max-width: 992px) { /* Tela pequena (lg) */
+  #agravoModal .modal-dialog {
+    max-width: 800px; /* ou qualquer valor que você queira para telas pequenas */
+  }
+}
+
+@media (min-width: 993px) { /* Tela grande (xl) */
+  #agravoModal .modal-dialog {
+    max-width: 70%; /* ou qualquer valor que você queira para telas grandes */
+  }
 }
