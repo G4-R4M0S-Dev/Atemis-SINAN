@@ -8,5 +8,6 @@
   text-align: center;
   @media (max-width: 768px) { // 768px é um breakpoint comum para tablets e dispositivos móveis
     position: static; // Faz o rodapé se comportar como um elemento normal do fluxo do documento
+    font-size: 8px;
   }
 }
