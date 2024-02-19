@@ -21,7 +21,7 @@ import { NotificacaoComponent } from './agravos/notificacao/notificacao.componen
 import { AidsCriancaComponent } from './agravos/aids-crianca/aids-crianca.component';
 import { RaivaHumanaComponent } from './agravos/raiva-humana/raiva-humana.component';
 import { ViolenciaInterpessoalComponent } from './agravos/violencia-interpessoal/violencia-interpessoal.component';
-
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { ViolenciaInterpessoalComponent } from './agravos/violencia-interpessoal
     NotificacaoComponent,
     AidsCriancaComponent,
     RaivaHumanaComponent,
-    ViolenciaInterpessoalComponent
+    ViolenciaInterpessoalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
