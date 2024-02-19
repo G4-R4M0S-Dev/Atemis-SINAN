@@ -6,4 +6,7 @@
   background-color: #f8f9fa; // Cor de fundo acinzentada
   color: black; // Cor do texto
   text-align: center;
+  @media (max-width: 768px) { // 768px é um breakpoint comum para tablets e dispositivos móveis
+    margin-bottom: 20px; // Aumenta o espaçamento na parte inferior do rodapé
+  }
 }
