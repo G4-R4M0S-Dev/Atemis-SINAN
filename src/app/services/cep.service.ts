@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class CepService {
 
-  private baseUrl: string = 'https://brasilaberto.com/api/v1/zipcode/';
+  private baseUrl: string = 'https://api.brasilaberto.com/v1/zipcode/';
 
   constructor(private http: HttpClient) { }
 
